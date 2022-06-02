@@ -35,6 +35,10 @@ const GlobalStyles = createGlobalStyle`
         outline: none;
         border: none;
         text-decoration: none;
+
+        &::selection{
+            background: var(--input-color);
+        }
     }
     html {
         overscroll-behavior: contain;
