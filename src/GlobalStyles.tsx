@@ -35,7 +35,7 @@ const GlobalStyles = createGlobalStyle`
         outline: none;
         border: none;
         text-decoration: none;
-
+        
         &::selection{
             background: var(--input-color);
         }
@@ -43,6 +43,7 @@ const GlobalStyles = createGlobalStyle`
     html {
         overscroll-behavior: contain;
         height: 100%;
+        font-size: 16px;
         @media (prefers-reduced-motion: no-preference) {
             scroll-behavior: smooth;
         }
@@ -52,6 +53,7 @@ const GlobalStyles = createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         color: var(--white-color);
+        
     }
     body, input{
         font-family: var(--poppins-font);
