@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useState } from 'react'
 import { IconContext } from 'react-icons';
 import { FaUserCircle, FaUserPlus } from 'react-icons/fa';
+import ErrorNotification from '../../utils/ErrorNotifications';
 import SigninForm from '../SigninForm/SigninForm';
 import SignupForm from '../SignupForm/SignupForm';
 import { Buttons, Div } from './Log.elements'
@@ -56,6 +57,9 @@ const Log: FunctionComponent<LogProps> = ({
                   { signUp ? <FaUserPlus/> : <FaUserCircle/> } <br/>
                   { signUp ? "S'enregistrer" : "Se connecter" }
                 </div>
+
+                <ErrorNotification/> 
+                
               </IconContext.Provider>
               { signIn && <SigninForm/> }
               { signUp && <SignupForm/> }

@@ -7,7 +7,7 @@ type InputPasswordProps = {
     handleChange: (e: any) => void;
     name: string;
     placeholder: string;
-    // error: any;
+    error: any;
     // innerRef: any;
 }
 
@@ -15,7 +15,7 @@ const InputPassword: FunctionComponent<InputPasswordProps> = ({
     handleChange,
     name,
     placeholder,
-    // error,
+    error,
     // innerRef
 }) => {
 
@@ -24,8 +24,7 @@ const InputPassword: FunctionComponent<InputPasswordProps> = ({
     
 
   return (
-    // <Div className={error ? "error" : ""}>
-    <Div>
+    <Div className={error ? "error" : ""}>
         <div className="icon">
             <FaLock/>
         </div>

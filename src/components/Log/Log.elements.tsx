@@ -33,6 +33,14 @@ export const Div = styled.div`
             justify-content: center;
             align-items: center;
             flex-direction: column;
+
+            .error-auth{
+                font-style: italic;
+                color: var(--error-color);
+                text-transform: uppercase;
+                font-weight: 600;
+            }
+            
             &__title{
                 font-size: 2.2rem;
                 font-weight: 700;
