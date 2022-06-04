@@ -1,4 +1,6 @@
 import React, { FunctionComponent, useState } from 'react'
+import { IconContext } from 'react-icons';
+import { FaUserCircle, FaUserPlus } from 'react-icons/fa';
 import SigninForm from '../SigninForm/SigninForm';
 import SignupForm from '../SignupForm/SignupForm';
 import { Buttons, Div } from './Log.elements'
@@ -49,6 +51,12 @@ const Log: FunctionComponent<LogProps> = ({
             </div>
 
             <div className="sign-component">
+              <IconContext.Provider value={{ color: "#FFF", size: "4rem" }}>
+                <div className="sign-component__title">
+                  { signUp ? <FaUserPlus/> : <FaUserCircle/> } <br/>
+                  { signUp ? "S'enregistrer" : "Se connecter" }
+                </div>
+              </IconContext.Provider>
               { signIn && <SigninForm/> }
               { signUp && <SignupForm/> }
             </div>

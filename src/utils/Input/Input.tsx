@@ -4,7 +4,7 @@ import { Div } from './Input.elements'
 type InputProps = {
   placeholder: string;
   name: string;
-  error: any;
+  // error: any;
   icon: JSX.Element;
   type: string;
   handleChange: (e: any) => void;
@@ -22,11 +22,12 @@ const Input: FunctionComponent<InputProps> = ({
     type, 
     placeholder,
     name,
-    error
+    // error
 }) => {
 
   return (
-    <Div className={error ? "error" : ""}>
+    // <Div className={error ? "error" : ""}>
+    <Div>
         <div className="icon">
             {icon}
         </div>

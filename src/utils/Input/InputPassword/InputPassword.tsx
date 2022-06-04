@@ -7,16 +7,16 @@ type InputPasswordProps = {
     handleChange: (e: any) => void;
     name: string;
     placeholder: string;
-    error: any;
-    innerRef: any;
+    // error: any;
+    // innerRef: any;
 }
 
 const InputPassword: FunctionComponent<InputPasswordProps> = ({
     handleChange,
     name,
     placeholder,
-    error,
-    innerRef
+    // error,
+    // innerRef
 }) => {
 
     const [passwordShown, setPasswordShown] = useState(false)
@@ -24,7 +24,8 @@ const InputPassword: FunctionComponent<InputPasswordProps> = ({
     
 
   return (
-    <Div className={error ? "error" : ""}>
+    // <Div className={error ? "error" : ""}>
+    <Div>
         <div className="icon">
             <FaLock/>
         </div>
@@ -35,7 +36,7 @@ const InputPassword: FunctionComponent<InputPasswordProps> = ({
             required
             autoComplete='off'
             placeholder={placeholder}
-            ref={innerRef}
+            // ref={innerRef}
             
         />
         <div className="show" onClick={togglePassword}>

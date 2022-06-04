@@ -14,8 +14,9 @@ export const Div = styled.div`
         grid-template-columns: 35% 65%;
         
         &__row{
+            margin-top: 2rem;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
 
             &__buttons{
                 display: flex;
@@ -25,6 +26,23 @@ export const Div = styled.div`
 
             }
             
+        }
+
+        .sign-component{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            &__title{
+                font-size: 2.2rem;
+                font-weight: 700;
+                margin-bottom: 10px;
+                background-color: #fff;
+                background-image: radial-gradient(at 4% 36%, hsla(0,0%,100%,1) 0, transparent 53%), radial-gradient(at 100% 60%, rgb(0, 0, 0) 0, transparent 50%);
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent; 
+            }
         }
     }
 `;

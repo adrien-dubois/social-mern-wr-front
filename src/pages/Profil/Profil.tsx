@@ -1,6 +1,5 @@
-import React from 'react'
-import Log from '../../components/Log/Log'
-import { Div } from './Profil.elements'
+import Log from '../../components/Log/Log';
+import { Div } from './Profil.elements';
 
 const Profil = () => {
   return (
