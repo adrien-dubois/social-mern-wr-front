@@ -13,7 +13,7 @@ const Profil = () => {
             <img src='./assets/img/auth.png' alt='Authenfication guy'/>
           </div>
 
-          <Log/>
+          <Log signup={true} signin={false} />
 
         </div>
       </div>

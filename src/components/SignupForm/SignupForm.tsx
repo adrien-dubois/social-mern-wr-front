@@ -4,7 +4,7 @@ import { Div } from './SignupForm.elements'
 const SignupForm = () => {
   return (
     <Div>
-        S'enregistrer
+        Pas encore inscrit? Enregistrez-vous
     </Div>
   )
 }
