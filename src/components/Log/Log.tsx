@@ -20,10 +20,10 @@ const Log: FunctionComponent<LogProps> = ({
   const [signUp, setSignUp] = useState<boolean>(signup);
 
   const handleForm = (e: any) => {
-    if(e.target.id === 'register' ) {
+    if(e.target.id == 'register' ) {
       setSignIn(false);
       setSignUp(true);
-    } else if (e.target.id === 'login') {
+    } else if (e.target.id == 'login') {
       setSignIn(true);
       setSignUp(false);
     }
@@ -34,20 +34,27 @@ const Log: FunctionComponent<LogProps> = ({
         <div className="form-container">
             <div className='form-container__row'>
               <div className="form-container__row__buttons">
+                
                 <Buttons 
                   id="login" 
                   onClick={handleForm}
                   className={signIn ? "active" : ""} 
                 >
-                  Inscription
+                  Connection
                 </Buttons>
+
                 <Buttons 
                   id="register" 
                   onClick={handleForm} 
                   className={signUp ? "active" : ""}
                 >
-                  Connection
+                  Inscription
                 </Buttons>
+
+                {signIn ? 
+                         (<p className='text-info'>Pas encore inscrit? Enregistrez-vous </p>):
+                         (<p className='text-info'>Déjà inscrit? Connectez vous</p>)  
+              }
               </div>
             </div>
 
@@ -57,8 +64,6 @@ const Log: FunctionComponent<LogProps> = ({
                   { signUp ? <FaUserPlus/> : <FaUserCircle/> } <br/>
                   { signUp ? "S'enregistrer" : "Se connecter" }
                 </div>
-
-                <ErrorNotification/> 
                 
               </IconContext.Provider>
               { signIn && <SigninForm/> }

@@ -9,8 +9,9 @@ import { AppDispatch } from '../../index';
 import { signin } from '../../actions/Auth';
 import { NavigateFunction, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import ErrorNotification from '../../utils/ErrorNotifications';
 
-const initialState = { email: '', password: '' };
+const initialState = { username: '', password: '' };
 
 const SigninForm = () => {
 
@@ -26,6 +27,7 @@ const SigninForm = () => {
   /*----- FORM FIELDS STATE -----*/
   const [formData, setFormData] = useState(initialState);
   const form = useRef<any>(null);
+  const pass = useRef<any>(null);
   const isError = useSelector((state: RootState) => state.errors.isError);
   const [error, setError] = useState<boolean>(false);
 
@@ -57,7 +59,7 @@ const SigninForm = () => {
 
   return (
     <Div>
-
+      <ErrorNotification/>
         <form 
           onSubmit={handleLogin} 
           autoComplete="off"
@@ -67,7 +69,7 @@ const SigninForm = () => {
             icon={<FaEnvelope/>}
             type="email"
             placeholder='E-Mail'
-            name="email"
+            name="username"
             handleChange={handleChange}
             error={error}
           />
@@ -77,6 +79,7 @@ const SigninForm = () => {
             handleChange={handleChange}
             placeholder="Mot de passe"
             error={error}
+            innerRef={pass}
           />
 
           <Button type="submit" className='btn-signin'>

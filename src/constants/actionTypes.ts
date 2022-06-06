@@ -5,3 +5,6 @@ export const SIGNUP = "SIGNUP";
 
 /*----- ERRORS -----*/
 export const CREDENTIALS = "CREDENTIALS";
+export const VALIDATE = "VALIDATE";
+export const PASSWORDS = "PASSWORDS";
+export const UNIQID = "UNIQID";

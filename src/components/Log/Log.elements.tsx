@@ -24,6 +24,12 @@ export const Div = styled.div`
                 width: 60%;
                 margin-left: .8rem;
 
+                .text-info{
+                    margin-top: 1rem;
+                    font-size: .9rem;
+                    font-style: italic;
+                    color: var(--opaque-bg);
+                }
             }
             
         }

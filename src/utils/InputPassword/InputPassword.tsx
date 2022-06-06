@@ -8,7 +8,7 @@ type InputPasswordProps = {
     name: string;
     placeholder: string;
     error: any;
-    // innerRef: any;
+    innerRef: any;
 }
 
 const InputPassword: FunctionComponent<InputPasswordProps> = ({
@@ -16,7 +16,7 @@ const InputPassword: FunctionComponent<InputPasswordProps> = ({
     name,
     placeholder,
     error,
-    // innerRef
+    innerRef
 }) => {
 
     const [passwordShown, setPasswordShown] = useState(false)
@@ -35,7 +35,7 @@ const InputPassword: FunctionComponent<InputPasswordProps> = ({
             required
             autoComplete='off'
             placeholder={placeholder}
-            // ref={innerRef}
+            ref={innerRef}
             
         />
         <div className="show" onClick={togglePassword}>

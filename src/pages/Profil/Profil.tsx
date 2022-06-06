@@ -1,11 +1,19 @@
+import { useState } from 'react';
 import Log from '../../components/Log/Log';
 import { Div } from './Profil.elements';
 
 const Profil = () => {
+
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')!));
   return (
     <Div>
       <div className="container">
 
+      { user ? (
+
+        <h1>UPDATE PAGE</h1>
+
+      ) : (
         <div className="log-container">
           
           <div className="img-container">
@@ -15,6 +23,7 @@ const Profil = () => {
           <Log signup={true} signin={false} />
 
         </div>
+      )}
       </div>
     </Div>
   )
