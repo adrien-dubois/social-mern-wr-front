@@ -1,7 +1,16 @@
 import * as api from '../api';
 import { AppDispatch } from '../index';
 import { NavigateFunction } from 'react-router-dom';
-import { AUTH, CREDENTIALS, PASSWORDS, SIGNUP, UNIQID, VALIDATE } from '../constants/actionTypes';
+import { showNotification } from '@mantine/notifications';
+import { FiUserCheck } from 'react-icons/fi';
+import { 
+    AUTH, 
+    CREDENTIALS, 
+    PASSWORDS, 
+    SIGNUP, 
+    UNIQID, 
+    VALIDATE 
+} from '../constants/actionTypes';
 
 /*----- Login Method -----*/
 export const signin = (formData: any, navigate: NavigateFunction) => async (dispatch: AppDispatch) => {
@@ -12,6 +21,15 @@ export const signin = (formData: any, navigate: NavigateFunction) => async (disp
             type: AUTH,
             data
         });
+
+        showNotification({
+            title: 'Notification',
+            message: "Vous êtes bien connecté",
+            radius: "lg",
+            color: 'green',
+            icon: <FiUserCheck/>,
+        });
+
         navigate("/");
 
     } catch (error) {
@@ -43,6 +61,13 @@ export const signup = (formData: any, navigate: NavigateFunction) => async (disp
         dispatch({
             type: SIGNUP,
             data
+        });
+        
+        showNotification({
+            title: 'Notification',
+            message: "Vérifiez vos mails afin d'activer votre compte",
+            radius: "lg",
+            color: 'green'
         });
 
         navigate('/');

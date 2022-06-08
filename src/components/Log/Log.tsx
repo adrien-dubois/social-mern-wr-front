@@ -61,7 +61,7 @@ const Log: FunctionComponent<LogProps> = ({
             <div className="sign-component">
               <IconContext.Provider value={{ color: "#FFF", size: "4rem" }}>
                 <div className="sign-component__title">
-                  { signUp ? <FaUserPlus/> : <FaUserCircle/> } <br/>
+                  { signUp ? <FaUserPlus/> : <FaUserCircle/> } 
                   { signUp ? "S'enregistrer" : "Se connecter" }
                 </div>
                 

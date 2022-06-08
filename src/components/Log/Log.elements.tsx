@@ -4,12 +4,7 @@ export const Div = styled.div`
     .form-container{
         margin: 0 auto;
         width: 650px;
-        height: 550px;
-        border-radius: 16px;
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
+        height: 800px;
         display: grid;
         grid-template-columns: 35% 65%;
         
@@ -36,7 +31,7 @@ export const Div = styled.div`
 
         .sign-component{
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             flex-direction: column;
 
@@ -48,6 +43,9 @@ export const Div = styled.div`
             }
             
             &__title{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
                 font-size: 2.2rem;
                 font-weight: 700;
                 margin-bottom: 10px;

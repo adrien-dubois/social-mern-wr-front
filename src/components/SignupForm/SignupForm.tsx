@@ -1,14 +1,22 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+// @ts-ignore
+import FileBase from 'react-file-base64';
+
+/*----- STYLE & ICONS -----*/
 import { FaEnvelope, FaUser } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
-import { NavigateFunction, useNavigate } from 'react-router-dom';
-import { AppDispatch, useAppDispatch } from '../..';
-import { signup } from '../../actions/Auth';
 import { Button } from '../../GlobalStyles';
-import ErrorNotification from '../../utils/ErrorNotifications';
 import Input from '../../utils/Input/Input';
 import InputPassword from '../../utils/InputPassword/InputPassword';
 import { Div } from './SignupForm.elements'
+
+/*----- HOOKS -----*/
+import { useSelector } from 'react-redux';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
+import { AppDispatch, useAppDispatch } from '../..';
+
+/*----- COMPONENTS -----*/
+import { signup } from '../../actions/Auth';
+import ErrorNotification from '../../utils/ErrorNotifications';
 
 const initialState = { email: '', pseudo: '', password: '', confirmPassword:'', bio:'', image: '' }
 
@@ -23,7 +31,7 @@ const SignupForm = () => {
     errors: any
   }
 
-  /*------ ERROR MANAGE STATES ------*/
+  /*------ MANAGE ERROR STATES ------*/
   const isError = useSelector((state: RootState) => state.errors.isError);
   const isPass = useSelector((state: RootState) => state.errors.isPass);
   const [error, setError] = useState<boolean>(false);
@@ -103,6 +111,15 @@ useEffect(() => {
           handleChange={handleChange}
           innerRef={confpass}
         />
+
+        <div className="input-file">
+          <FileBase
+            type="file"
+            multiple={false}
+            onDone={(base64: any) => setFormData({ ...formData, image: base64 })}
+          />
+        </div>
+
           <Button type="submit" className='btn-signin'>
             S'enregistrer
           </Button>

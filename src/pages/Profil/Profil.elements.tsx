@@ -48,7 +48,7 @@ export const Div = styled.div`
     
             .img-container {
                 display: grid;
-                align-items: center;
+                align-items: start;
                 justify-content: center;
                 height: 100%;
             

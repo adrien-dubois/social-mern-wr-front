@@ -1,6 +1,6 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import { NotificationsProvider } from '@mantine/notifications';
 
 /*------ STORE REDUX PART ------*/
 import { Provider, TypedUseSelectorHook } from "react-redux";
@@ -23,9 +23,13 @@ const store = createStore(
 
 root.render(
   <Provider store={store}>
-    <React.StrictMode>
+    <NotificationsProvider
+      position='top-right'
+      zIndex={2077}
+      containerWidth={300}
+    >
       <App />
-    </React.StrictMode>
+    </NotificationsProvider>
   </Provider>
 );
 
