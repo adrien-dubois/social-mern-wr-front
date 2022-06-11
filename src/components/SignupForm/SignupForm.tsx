@@ -126,7 +126,7 @@ useEffect(() => {
           />
         </div>
 
-          <Button type="submit" className='btn-signin'>
+          <Button fontBig={false} big={false} type="submit" className='btn-signin'>
             S'enregistrer
           </Button>
       </form>

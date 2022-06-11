@@ -34,7 +34,7 @@ export const signin = (formData: any, navigate: NavigateFunction) => async (disp
 
         navigate("/");
 
-    } catch (error) {
+    } catch (error: any) {
 
         // IF NOT ACTIVATED BY MAIL
         if(error.response.status === 403) {
@@ -75,11 +75,9 @@ export const signup = (formData: any, navigate: NavigateFunction) => async (disp
 
         navigate('/');
 
-    } catch (error) {
+    } catch (error: any) {
 
         const err = error.response.data;
-
-        console.log(err)
 
         // PASSWORD
         if(err.message !== undefined){

@@ -80,15 +80,15 @@ const GlobalStyles = createGlobalStyle`
 
 export default GlobalStyles;
 
-export const Button = styled.button`
+export const Button = styled.button<{big: boolean, fontBig: boolean}>`
     border-radius: 4px;
     font-family: var(--poppins-font);
     background-image: linear-gradient(to right, #f43b47 0%, #453a94 100%);
     background-size: 200% auto;
     white-space: nowrap;
-    padding: 10px 20px;
+    padding: ${({big}) => (big ? '12px 64px' : '10px 20px' ) };
     color: #fff;
-    font-size: 1rem;
+    font-size: ${({fontBig}) => (fontBig ? '20px' : '16px')};
     font-weight: 500;
     outline: none;
     border: none;
@@ -96,6 +96,10 @@ export const Button = styled.button`
     box-shadow: 0 0 10px #eee;
     transition: all .3s ease-out;
     
+    &.navBtn{
+        display: flex;
+        border-radius: 20px;
+    }
     
     &:hover{
         background-position: right center;

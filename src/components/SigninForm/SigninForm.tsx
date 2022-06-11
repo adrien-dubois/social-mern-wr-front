@@ -85,7 +85,7 @@ const SigninForm = () => {
             innerRef={pass}
           />
 
-          <Button type="submit" className='btn-signin'>
+          <Button fontBig={false} big={false} type="submit" className='btn-signin'>
             Se connecter
           </Button>
 
