@@ -15,13 +15,13 @@ const Profil = () => {
 
       ) : (
         <div className="log-container">
-          
-          <div className="img-container">
-            <img src='./assets/img/auth.png' alt='Authenfication guy'/>
-          </div>
 
           <Log signup={true} signin={false} />
 
+          <div className="img-container">
+            <img src='./assets/img/auth.png' alt='Authenfication guy'/>
+          </div>
+          
         </div>
       )}
       </div>

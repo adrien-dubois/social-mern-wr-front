@@ -2,7 +2,7 @@ import * as api from '../api';
 import { AppDispatch } from '../index';
 import { NavigateFunction } from 'react-router-dom';
 import { showNotification } from '@mantine/notifications';
-import { FiUserCheck } from 'react-icons/fi';
+import { GiMailbox, GiRabbitHead } from 'react-icons/gi';
 import { 
     AUTH, 
     CREDENTIALS, 
@@ -26,10 +26,10 @@ export const signin = (formData: any, navigate: NavigateFunction) => async (disp
 
         showNotification({
             title: 'Notification',
-            message: "Vous êtes bien connecté",
+            message: "Connection réussie!",
             radius: "lg",
             color: 'green',
-            icon: <FiUserCheck/>,
+            icon: <GiRabbitHead/>,
         });
 
         navigate("/");
@@ -67,9 +67,10 @@ export const signup = (formData: any, navigate: NavigateFunction) => async (disp
         
         showNotification({
             title: 'Notification',
-            message: "Vérifiez vos mails afin d'activer votre compte",
+            message: "Vérifiez vos mails afin d'activer votre compte.",
             radius: "lg",
-            color: 'green'
+            color: 'green',
+            icon: <GiMailbox/>
         });
 
         navigate('/');

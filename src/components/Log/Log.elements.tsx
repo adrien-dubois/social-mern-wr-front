@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Div = styled.div`
     .form-container{
         margin: 0 auto;
+        margin-left: 3rem;
         width: 650px;
         height: 620px;
         display: grid;

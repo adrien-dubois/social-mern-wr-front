@@ -12,8 +12,8 @@ export const Div = styled.div`
     &:before{
         content: '';
         position: absolute;
-        width: 2000px;
-        height: 2000px;
+        width: 2700px;
+        height: 2700px;
         border-radius: 50%;
         background: rgb(39, 51, 89, 0.4);
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
