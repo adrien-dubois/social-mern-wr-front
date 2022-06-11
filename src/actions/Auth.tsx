@@ -6,7 +6,9 @@ import { FiUserCheck } from 'react-icons/fi';
 import { 
     AUTH, 
     CREDENTIALS, 
+    MINLENGTH, 
     PASSWORDS, 
+    RESET, 
     SIGNUP, 
     UNIQID, 
     VALIDATE 
@@ -76,6 +78,8 @@ export const signup = (formData: any, navigate: NavigateFunction) => async (disp
 
         const err = error.response.data;
 
+        console.log(err)
+
         // PASSWORD
         if(err.message !== undefined){
             dispatch({
@@ -85,12 +89,23 @@ export const signup = (formData: any, navigate: NavigateFunction) => async (disp
         };
         
         // UNIQID
-        if(err.detail !== undefined){
+        if(err.detail !== undefined && err.status === 500){
             dispatch({
                 type: UNIQID,
                 error
             });
         };
 
+        if(err.detail.includes("password")){
+            dispatch({
+                type: MINLENGTH,
+                error
+            });
+        };
+
     }
 };
+
+export const resetErrors = (dispatch: AppDispatch) =>{
+    dispatch({ type: RESET });
+}

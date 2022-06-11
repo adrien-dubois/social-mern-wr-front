@@ -15,7 +15,7 @@ import { NavigateFunction, useNavigate } from 'react-router-dom';
 import { AppDispatch, useAppDispatch } from '../..';
 
 /*----- COMPONENTS -----*/
-import { signup } from '../../actions/Auth';
+import { resetErrors, signup } from '../../actions/Auth';
 import ErrorNotification from '../../utils/ErrorNotifications';
 
 const initialState = { email: '', pseudo: '', password: '', confirmPassword:'', bio:'', image: '' }
@@ -35,6 +35,7 @@ const SignupForm = () => {
   const isError = useSelector((state: RootState) => state.errors.isError);
   const isPass = useSelector((state: RootState) => state.errors.isPass);
   const [error, setError] = useState<boolean>(false);
+  const [errorPass, setErrorPass] = useState<boolean>(false);
 
   /*----- FORM FIELDS STATE -----*/
   const [formData, setFormData] = useState(initialState);
@@ -54,20 +55,25 @@ const SignupForm = () => {
     });
     if(error === true){
       setError(false);
+      dispatch(resetErrors);
+    }
+    if(errorPass === true){
+      setErrorPass(false);
+      dispatch(resetErrors);
     }
   };
 
-  // If redux send an error message, this use effect will clear the login form
+// If redux send an error message, this use effect will clear the login form
 // Or pass fields if it's a password's error
 useEffect(() => {
-  if(isError == true){
+  if(isError === true){
     form.current.reset();
     setError(true);
   }
-  if(isPass == true){
+  if(isPass === true){
     pass.current.value="";
     confpass.current.value="";
-    setError(true);
+    setErrorPass(true);
   }
 }, [isError, isPass]);
 
@@ -99,14 +105,14 @@ useEffect(() => {
 
         <InputPassword
           name="password"
-          error={error}
+          error={errorPass}
           handleChange={handleChange}
           placeholder="Mot de passe"
           innerRef={pass}
         />
         <InputPassword 
           name="confirmPassword" 
-          error={error}
+          error={errorPass}
           placeholder="Confirmation mot de passe" 
           handleChange={handleChange}
           innerRef={confpass}

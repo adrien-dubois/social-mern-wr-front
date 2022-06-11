@@ -60,5 +60,7 @@ form{
         background: #444166;
         border: 2px solid rgba(0, 0, 0, .6);
     }
+    
 }
+
 `;

@@ -6,7 +6,7 @@ import Input from '../../utils/Input/Input';
 import InputPassword from '../../utils/InputPassword/InputPassword';
 import { Div } from './SigninForm.elements'
 import { AppDispatch } from '../../index';
-import { signin } from '../../actions/Auth';
+import { resetErrors, signin } from '../../actions/Auth';
 import { NavigateFunction, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ErrorNotification from '../../utils/ErrorNotifications';
@@ -28,6 +28,8 @@ const SigninForm = () => {
   const [formData, setFormData] = useState(initialState);
   const form = useRef<any>(null);
   const pass = useRef<any>(null);
+
+  /*----- MANAGE ERRORS -----*/
   const isError = useSelector((state: RootState) => state.errors.isError);
   const [error, setError] = useState<boolean>(false);
 
@@ -44,6 +46,7 @@ const SigninForm = () => {
     });
     if(error === true){
       setError(false);
+      dispatch(resetErrors);
     }
   };
 
