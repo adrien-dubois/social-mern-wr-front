@@ -8,14 +8,13 @@ import { AppDispatch, useAppDispatch } from './index';
 
 function App() {
   
-  const [ user, setUser ] = useState(JSON.parse(localStorage.getItem('profile')!));
   const dispatch: AppDispatch = useAppDispatch();
-
+  const [ user, setUser ] = useState<any>(JSON.parse(localStorage.getItem('profile')!));
+  
   useEffect(() => {
-    if(user){
-      const id = user.data.id;
-      dispatch(getUser(id))
-    }
+    const id = user?.data.id;
+    if(user) dispatch(getUser(id))
+    
   },[user])
 
   return (

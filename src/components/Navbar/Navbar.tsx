@@ -4,13 +4,14 @@ import { useDispatch } from 'react-redux';
 import decode, { JwtPayload } from 'jwt-decode';
 
 /*------ MANTINE & ICONS ------*/
-import { Burger, Avatar, AvatarsGroup } from '@mantine/core';
+import { Burger, Avatar} from '@mantine/core';
 import { FaUser } from 'react-icons/fa';
 import { BiLogOut } from 'react-icons/bi'
 import { IconContext } from 'react-icons';
 import { BtnLogout, Dropdown, Nav, NavbarContainer, NavBtnLink, NavIcon, NavItem, NavItemBtn, NavLinks, NavLogo, NavMenu, NavUser } from './Navbar.elements';
 import { Button } from '../../GlobalStyles';
 import { IoMdLogIn } from 'react-icons/io';
+import { useSelector } from 'react-redux';
 
 
 const Navbar = () => {
@@ -45,6 +46,7 @@ const Navbar = () => {
     /*----- AUTH USER PART -----*/
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')!));
 
+    const userData = useSelector((state: any) => state.user);
 
     const logout = () => {
         dispatch({ type: 'LOGOUT' })
@@ -55,8 +57,8 @@ const Navbar = () => {
     }
 
     /*----- MANAGE USER IMAGE -----*/
-    const imgSrc = user?.data.picture;
-    const usrName = user?.data.name;
+    const imgSrc = userData?.picture;
+    const usrName = userData?.pseudo;
     const imgName = usrName?.charAt(0).toUpperCase();
 
     /*----- JWT TOKEN -----*/
@@ -119,7 +121,7 @@ const Navbar = () => {
                                 {imgSrc ? 
                                     <Avatar 
                                         src={imgSrc} 
-                                        alt={user.name}
+                                        alt={userData.pseudo}
                                         size="lg" 
                                         radius="xl"
                                     /> 
@@ -128,7 +130,7 @@ const Navbar = () => {
                                 }
                                 </NavItem>
                                 <div className={userMenu ? 'menu active' : 'menu'}>
-                                    <h3>{user.name}</h3>
+                                    <h3>{userData.pseudo}</h3>
                                     <ul>
                                         <li>
                                             <Link to='/'>
