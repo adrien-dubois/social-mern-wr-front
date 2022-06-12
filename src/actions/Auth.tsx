@@ -6,6 +6,7 @@ import { GiMailbox, GiRabbitHead } from 'react-icons/gi';
 import { 
     AUTH, 
     CREDENTIALS, 
+    GET_USER, 
     MINLENGTH, 
     PASSWORDS, 
     RESET, 
@@ -107,4 +108,17 @@ export const signup = (formData: any, navigate: NavigateFunction) => async (disp
 
 export const resetErrors = (dispatch: AppDispatch) =>{
     dispatch({ type: RESET });
+}
+
+export const getUser = (id: number) => async (dispatch: AppDispatch) => {
+    try {
+        const { data } = await api.getUser(id);
+
+        dispatch({
+            type: GET_USER,
+            payload: data
+        });
+    } catch (error: any) {
+        console.log(error);
+    }
 }
