@@ -48,7 +48,7 @@ const Navbar = () => {
 
     useEffect(() => {
         if(user) dispatch(getUser())
-      },[user])
+      },[])
 
     const logout = () => {
         dispatch({ type: 'LOGOUT' })

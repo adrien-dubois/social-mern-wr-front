@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Log from '../../components/Log/Log';
 import Navbar from '../../components/Navbar/Navbar';
+import UpdateProfil from '../../components/UpdateProfil/UpdateProfil';
 import { Div } from './Profil.elements';
 
 const Profil = () => {
@@ -14,7 +15,7 @@ const Profil = () => {
 
         { user ? (
 
-          <h1>UPDATE PAGE</h1>
+          <UpdateProfil/>
 
         ) : (
           <div className="log-container">

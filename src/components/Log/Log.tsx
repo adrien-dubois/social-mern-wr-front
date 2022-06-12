@@ -21,10 +21,10 @@ const Log: FunctionComponent<LogProps> = ({
   const [signUp, setSignUp] = useState<boolean>(signup);
 
   const handleForm = (e: any) => {
-    if(e.target.id == 'register' ) {
+    if(e.target.id === 'register' ) {
       setSignIn(false);
       setSignUp(true);
-    } else if (e.target.id == 'login') {
+    } else if (e.target.id === 'login') {
       setSignIn(true);
       setSignUp(false);
     }
