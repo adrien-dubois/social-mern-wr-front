@@ -110,9 +110,9 @@ export const resetErrors = (dispatch: AppDispatch) =>{
     dispatch({ type: RESET });
 }
 
-export const getUser = (id: number) => async (dispatch: AppDispatch) => {
+export const getUser = () => async (dispatch: AppDispatch) => {
     try {
-        const { data } = await api.getUser(id);
+        const { data } = await api.getUser();
 
         dispatch({
             type: GET_USER,

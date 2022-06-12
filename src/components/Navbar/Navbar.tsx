@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import decode, { JwtPayload } from 'jwt-decode';
 
 /*------ MANTINE & ICONS ------*/
@@ -11,13 +10,14 @@ import { IconContext } from 'react-icons';
 import { BtnLogout, Dropdown, Nav, NavbarContainer, NavBtnLink, NavIcon, NavItem, NavItemBtn, NavLinks, NavLogo, NavMenu, NavUser } from './Navbar.elements';
 import { Button } from '../../GlobalStyles';
 import { IoMdLogIn } from 'react-icons/io';
-import { useSelector } from 'react-redux';
+import { AppDispatch, useAppDispatch } from '../..';
+import { getUser } from '../../actions/Auth';
 
 
 const Navbar = () => {
 
     /*----- HOOKS -----*/
-    const dispatch = useDispatch();
+    const dispatch: AppDispatch = useAppDispatch();
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -46,7 +46,9 @@ const Navbar = () => {
     /*----- AUTH USER PART -----*/
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')!));
 
-    const userData = useSelector((state: any) => state.user);
+    useEffect(() => {
+        if(user) dispatch(getUser())
+      },[user])
 
     const logout = () => {
         dispatch({ type: 'LOGOUT' })
@@ -57,8 +59,8 @@ const Navbar = () => {
     }
 
     /*----- MANAGE USER IMAGE -----*/
-    const imgSrc = userData?.picture;
-    const usrName = userData?.pseudo;
+    const imgSrc = user?.data.picture;
+    const usrName = user?.data.name;
     const imgName = usrName?.charAt(0).toUpperCase();
 
     /*----- JWT TOKEN -----*/
@@ -121,7 +123,7 @@ const Navbar = () => {
                                 {imgSrc ? 
                                     <Avatar 
                                         src={imgSrc} 
-                                        alt={userData.pseudo}
+                                        alt={user.name}
                                         size="lg" 
                                         radius="xl"
                                     /> 
@@ -130,7 +132,7 @@ const Navbar = () => {
                                 }
                                 </NavItem>
                                 <div className={userMenu ? 'menu active' : 'menu'}>
-                                    <h3>{userData.pseudo}</h3>
+                                    <h3>{user.name}</h3>
                                     <ul>
                                         <li>
                                             <Link to='/'>
