@@ -135,7 +135,7 @@ const Navbar = () => {
                                     <h3>{user.name}</h3>
                                     <ul>
                                         <li>
-                                            <Link to='/'>
+                                            <Link to='/profil'>
                                                 <button>
                                                     <FaUser/>Profil
                                                 </button>
@@ -159,7 +159,7 @@ const Navbar = () => {
                             </IconContext.Provider>
 
                             <NavUser>
-                                <NavLinks className='nav-links' to='/'>
+                                <NavLinks className='nav-links' to='/profil'>
                                     Profil
                                 </NavLinks>
                             </NavUser>

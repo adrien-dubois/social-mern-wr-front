@@ -18,6 +18,7 @@ export const Div = styled.div`
         &__bis{
             position: absolute;
             left: 10px;
+            top: 4.4rem;
 
             a{
                 transition: .1s;

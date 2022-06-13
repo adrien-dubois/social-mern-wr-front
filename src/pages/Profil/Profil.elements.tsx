@@ -19,9 +19,9 @@ export const Div = styled.div`
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
         backdrop-filter: blur(5px);
         -webkit-backdrop-filter: blur(5px);
-        border: 1px solid rgba(0, 0, 0, 0.3);
+        border: 2px solid rgba(0, 0, 0, 0.3);
         top: -10%;
-        right: 48%;
+        left: 48%;
         transform: translateY(-50%);
     }
 
@@ -31,10 +31,12 @@ export const Div = styled.div`
         height: 100%;
         top: 0;
         left: 0;
+        display: flex;
+        align-items: center;
 
         .log-container{
             position: absolute;
-            top: 13%;
+            /* top: 13%; */
             width: 100%;
             display: grid;
             grid-template-columns: repeat(2,1fr);

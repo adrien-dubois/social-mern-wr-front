@@ -19,7 +19,13 @@ export const Container = styled.div`
 `;
 
 export const Nav = styled.nav`
-    height: 80px;
+    height: 90px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0 0 16px 16px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: .5rem;
     display: flex;
     justify-content: center;
     align-items: center;

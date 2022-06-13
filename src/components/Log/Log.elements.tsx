@@ -100,6 +100,7 @@ export const Buttons = styled.button`
     display: block;
     width: 100%;
     display: flex;
+    align-items: center;
     color: var(--white-color);
     border-radius: 20px;
     cursor: pointer;
