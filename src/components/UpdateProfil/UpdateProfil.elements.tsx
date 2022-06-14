@@ -37,26 +37,7 @@ export const Div = styled.div`
 
                 
             &__left{
-                text-align: center;
-
-                h3{
-                    margin-bottom: .9rem;
-                }
-
-                .user-img{
-                    height: 180px;
-                    width: 180px;
-                    border-radius: 46px;
-                    object-fit: cover;
-                    margin-bottom: 30px; 
-                    box-shadow: 0 0 6px rgba(51, 51, 51, 0.363);                 
-                }
-
-                form{
-                    position: relative;
-
-                    
-                }
+                
             }
         }
     }

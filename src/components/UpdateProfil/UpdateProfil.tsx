@@ -1,13 +1,11 @@
 import { useSelector } from "react-redux"
 import LeftNav from "../../utils/LeftNav/LeftNav"
 import { Div } from "./UpdateProfil.elements"
-import { Avatar } from '@mantine/core';
-import userDefault from "../../utils/img/user.png";
+import Upload64 from '../../utils/Upload64/Upload64';
 
 const UpdateProfil = () => {
 
   const userData = useSelector((state: any) => state.user);
-  const userAvatar = userData.picture;
   return (
     <Div>
         <div className="profil-container">
@@ -17,11 +15,7 @@ const UpdateProfil = () => {
           <div className="profil-container__divide">
 
             <div className="profil-container__divide__left">
-              <h3>Photo de profil</h3>
-              { userAvatar ? 
-                      <Avatar radius="xl" size={180} src={userAvatar} />
-                      :
-                      <Avatar radius="xl" size={180} src={userDefault} className="user-img" />}
+              <Upload64/>
             </div>
 
             <div className="profil-container__divide__right">
