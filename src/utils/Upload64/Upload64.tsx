@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
 import * as S from '../Upload64/Upload64.elements';
 import { BsUpload } from 'react-icons/bs';
+import defaultPic from '../img/user.png'
+import { ImSpinner2 } from 'react-icons/im';
 
 const Upload64 = () => {
 
@@ -72,31 +74,65 @@ const Upload64 = () => {
                 <h3>Avatar</h3>
 
                 <form onSubmit={(e) => onFileSubmit(e)} onChange={(e) => onChange(e)}>
+                    <div className="card">
 
-                    <S.ImgPreview top={imgPreview === "" ? 65 : -15}
-                                  width={imgPreview === "" ? 120 : 145}
-                                  height={imgPreview === "" ? 120 : 145}>
+                        <S.ImgPreview>
+                            {imgPreview !== ""  ? 
+                                    <img src={imgPreview}/> : 
+                                        (userAvatar ?
 
-                         {imgPreview !== ""  ? 
-                            <img src={imgPreview}/> : 
-                                (userAvatar ?
+                                        <img src={userAvatar}/> 
+                                        :
+                                        <img src={defaultPic}/>)}
+                        </S.ImgPreview>
 
-                                <img src={userAvatar} style={{ height: '140px', width: '140px' }} /> 
-                                :
-                                <BsUpload />)
-                            }
-                        <input 
-                            type="file" 
-                            name='avatar' 
-                            id='file'
-                            accept='image/png,
-                                    image/jpg,
-                                    image/jpeg'
-                            onChange={picUpload}
-                            src={imgPreview}
-                        /> 
-                    </S.ImgPreview>
+                        {imgPreview !== "" &&
+                            <>
+                                <section>
+                                    <label>Nom de l'image</label>
+                                    <span>{ name }</span>
 
+
+                                    <label>Taille</label>
+                                    <span>{ size } {''} ko</span>
+                                </section>
+                                <div className='btn-container'>
+                                    <button type='submit' className='btn-container__valid' >
+                                        {isLoading ?
+                                        <S.Spinner>
+                                            <ImSpinner2/>
+                                        </S.Spinner>  :
+                                        <>
+                                            Valider
+                                        </>
+                                    }
+                                    </button>
+                                    <button type="button" className='btn-container__remove'  onClick={remove}>Enlever</button>
+                                </div>
+                            </>
+                        }
+                        {
+                            imgPreview === "" &&
+                        <>
+                        <S.BtnSvg>
+                            <BsUpload />
+                            <input 
+                                type="file" 
+                                name='avatar' 
+                                id='file'
+                                accept='image/png,
+                                        image/jpg,
+                                        image/jpeg'
+                                onChange={picUpload}
+                                src={imgPreview}
+                            /> 
+                        </S.BtnSvg>
+                        <br/>
+                        <h3 className='upload_subtitle'>Veuillez sélectionner une nouvelle image si vous souhaitez en changer.</h3>
+                        </>
+                        }
+                    </div>
+                    
                 </form>
             </S.Div>
   )
