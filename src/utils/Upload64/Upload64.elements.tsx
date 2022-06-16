@@ -13,6 +13,7 @@ export const Div = styled.div`
         font-style: italic;
         font-weight: 700;
         width: 60%;
+        font-size: 1.2rem;
     }
 
     .card {
@@ -22,78 +23,94 @@ export const Div = styled.div`
         align-items: center;
         position: relative;
 
-        section{
-            position: relative;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            margin-top: 25px;
-            width: 80%;
-            text-align: center;
-            padding-top: 20px;
-            transition: all 1.6s ;
-    
-            label {
-                font-size: 20px;
-                margin-bottom: 8px;
-                transition: all 1.6s;
-            }
-    
-            span{
-                transition: all 1.6s;
-                font-size: 16px;
-                margin-bottom: 8px;
-                height: 18px;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                color: var(--grey-color);
-            }
-        }
-
-        
-        .btn-container{
-            display: flex;
-            align-items: center;
-            flex-direction: column;
+        .contain{
             width: 100%;
+            height: 100%;
+            visibility: visible;
+            opacity: 1;
+            transition: opacity .8s ease-in;
 
-            &__valid{
-                margin: 25px 0;
-                border-radius: 20px;
-                border: none;
-                background: #387289;
-                width: 80%;
-                color: #FFF;
-                height: 30px;
-                font-weight: bold;
-                cursor: pointer;
-
-                &:hover{
-                    transition: all 1s;
-                    background: #66CBBC;
-
+            section{
+                position: relative;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                margin-top: 25px;
+                width: 100%;
+                text-align: center;
+                padding-top: 20px;
+                transition: all 1.6s ;
+        
+                label {
+                    font-size: 20px;
+                    margin-bottom: 8px;
+                    transition: all 1.6s;
+                }
+        
+                span{
+                    transition: all 1.6s;
+                    font-size: 16px;
+                    margin-bottom: 8px;
+                    height: 18px;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    color: var(--grey-color);
                 }
             }
-
-            &__remove{
-                margin-bottom: 15px;
-                border-radius: 20px;
-                border: none;
-                background: #ed3a53;
-                width: 50%;
-                color: #FFF;
-                height: 30px;
-                font-weight: bold;
-                cursor: pointer;
-
-                &:hover{
-                    transition: all 1s;
-                    background: #fd637b;
-
-                }
-            }
+    
             
+            .btn-container{
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                &__valid{
+                    margin: 25px 0;
+                    border-radius: 20px;
+                    border: none;
+                    background: #387289;
+                    width: 50%;
+                    color: #FFF;
+                    height: 30px;
+                    font-weight: bold;
+                    cursor: pointer;
+    
+                    &:hover{
+                        transition: all 1s;
+                        background: #66CBBC;
+    
+                    }
+                }
+    
+                &__remove{
+                    margin-bottom: 15px;
+                    border-radius: 20px;
+                    border: none;
+                    background: #ed3a53;
+                    width: 30%;
+                    color: #FFF;
+                    height: 30px;
+                    font-weight: bold;
+                    cursor: pointer;
+    
+                    &:hover{
+                        transition: all 1s;
+                        background: #fd637b;
+    
+                    }
+                }
+            }
+
+            &.hidden{
+                visibility: hidden;
+                opacity: 0;
+                height: 0;
+                width: 0;
+                transition: opacity 0s;
+            }
         }
+            
     }
 
 `;
@@ -123,6 +140,7 @@ export const ImgPreview = styled.div`
 `;
 
 export const BtnSvg = styled.button`
+    cursor: pointer;
     width: 120px;
     height: 60px;
     margin-top: 4rem;
@@ -141,8 +159,9 @@ export const BtnSvg = styled.button`
     svg{
         width: 40px;
         height: 40px;
-        transition: all 1s;
         color: white;
+        cursor: pointer;
+        transition: all 1s;
     }
 
 
@@ -152,7 +171,9 @@ export const BtnSvg = styled.button`
         border-radius: 100%;
         cursor: pointer;
         z-index: 99999;
-        width: 145px;  
+        width: 145px; 
+        height: 145px; 
+    }
 
     &:hover{
         transition: all 1s;

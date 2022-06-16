@@ -2,7 +2,10 @@
 export const AUTH = "AUTH";
 export const LOGOUT = "LOGOUT";
 export const SIGNUP = "SIGNUP";
+
+/*----- USERS -----*/
 export const GET_USER = "GET_USER";
+export const PICTURE = "PICTURE";
 
 /*----- ERRORS AUTH -----*/
 export const CREDENTIALS = "CREDENTIALS";

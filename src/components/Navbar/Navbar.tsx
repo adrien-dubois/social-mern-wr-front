@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import decode, { JwtPayload } from 'jwt-decode';
 
 /*------ MANTINE & ICONS ------*/
@@ -59,8 +60,9 @@ const Navbar = () => {
     }
 
     /*----- MANAGE USER IMAGE -----*/
-    const imgSrc = user?.data.picture;
-    const usrName = user?.data.name;
+    const userData = useSelector((state: any) => state.user);
+    const imgSrc = userData.picture;
+    const usrName = userData.pseudo;
     const imgName = usrName?.charAt(0).toUpperCase();
 
     /*----- JWT TOKEN -----*/

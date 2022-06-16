@@ -1,16 +1,19 @@
-import { Avatar } from '@mantine/core';
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useSelector } from 'react-redux';
 import * as S from '../Upload64/Upload64.elements';
 import { BsUpload } from 'react-icons/bs';
 import defaultPic from '../img/user.png'
 import { ImSpinner2 } from 'react-icons/im';
+import { Loader } from '@mantine/core';
+import { useAppDispatch, AppDispatch } from '../../index';
+import { editUserPic } from '../../actions/User';
 
 const Upload64 = () => {
 
     /*----- USER HOOK -----*/
     const userData = useSelector((state: any) => state.user);
     const userAvatar = userData.picture;
+    const dispatch: AppDispatch = useAppDispatch();
 
     /*----- PREPARE UPLOAD -----*/
     const [file, setFile] = useState<string>();
@@ -21,7 +24,6 @@ const Upload64 = () => {
     const[isLoading, setIsLoading] = useState<boolean>(false);
 
     const onChange = (e: any) => {
-        console.log("file", e.target.files[0]);
         let file = e.target.files[0];
         if(file){
             const reader = new FileReader();
@@ -32,18 +34,19 @@ const Upload64 = () => {
 
     const _handleReaderLoaded = (readerEvt: any) => {
         let binaryString = readerEvt.target.result;
-        setBase64(btoa(binaryString));
+        const base = btoa(binaryString);
+        setBase64("data:image/png;base64," + base)
     }
 
     const onFileSubmit = ( e: any ) => {
         setIsLoading(true);
         e.preventDefault();
-        console.log("bine", base64)
         let payload = { image: base64 }
-        console.log("payload", payload)
-
+        // console.log(base64)
         setTimeout(() => {
-            setIsLoading(false)
+            dispatch(editUserPic(payload));
+            setIsLoading(false);
+            remove();
         }, 2000)
     }
 
@@ -78,41 +81,37 @@ const Upload64 = () => {
 
                         <S.ImgPreview>
                             {imgPreview !== ""  ? 
-                                    <img src={imgPreview}/> : 
+                                    <img src={imgPreview} alt="Preview"/> : 
                                         (userAvatar ?
 
-                                        <img src={userAvatar}/> 
+                                        <img src={userAvatar} alt="Already stored"/> 
                                         :
-                                        <img src={defaultPic}/>)}
+                                        <img src={defaultPic} alt="Never stored"/>)}
                         </S.ImgPreview>
 
-                        {imgPreview !== "" &&
-                            <>
-                                <section>
-                                    <label>Nom de l'image</label>
-                                    <span>{ name }</span>
+                        <div className={imgPreview !== "" ? 'contain' : 'contain hidden' }>
+                            <section>
+                                <label>Nom de l'image</label>
+                                <span>{ name }</span>
 
 
-                                    <label>Taille</label>
-                                    <span>{ size } {''} ko</span>
-                                </section>
-                                <div className='btn-container'>
-                                    <button type='submit' className='btn-container__valid' >
-                                        {isLoading ?
-                                        <S.Spinner>
-                                            <ImSpinner2/>
-                                        </S.Spinner>  :
-                                        <>
-                                            Valider
-                                        </>
-                                    }
-                                    </button>
-                                    <button type="button" className='btn-container__remove'  onClick={remove}>Enlever</button>
-                                </div>
-                            </>
-                        }
-                        {
-                            imgPreview === "" &&
+                                <label>Taille</label>
+                                <span>{ size } {''} ko</span>
+                            </section>
+                            <div className='btn-container'>
+                                <button type='submit' className='btn-container__valid' >
+                                    {isLoading ?
+                                    <Loader color="orange" size="sm" />  :
+                                    <>
+                                        Valider
+                                    </>
+                                }
+                                </button>
+                                <button type="button" className='btn-container__remove'  onClick={remove}>Enlever</button>
+                            </div>
+                        </div>
+                        
+                        {imgPreview === "" &&
                         <>
                         <S.BtnSvg>
                             <BsUpload />

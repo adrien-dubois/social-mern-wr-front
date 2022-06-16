@@ -1,11 +1,14 @@
-import { GET_USER } from "../constants/actionTypes";
+import { GET_USER, PICTURE } from "../constants/actionTypes";
 
-const initialState = {};
-
-const userReducer = ( state = initialState, action: any) => {
+const userReducer = ( state = {}, action: any) => {
     switch (action.type) {
         case GET_USER:
             return action.payload;
+        case PICTURE:
+            return {
+                ...state,
+               uploadImage: action.payload
+            };
         default:
             return state;
     }

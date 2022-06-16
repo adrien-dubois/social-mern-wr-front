@@ -18,3 +18,4 @@ API.interceptors.request.use((req) => {
 export const signIn = (formData: any) => API.post('/login_check',formData);
 export const signUp = (formData: any) => API.post('/v1/register',formData);
 export const getUser = () => API.get('/v1/user/datas');
+export const editPicture = (payload: any) => API.patch('/v1/user/picture', payload);
