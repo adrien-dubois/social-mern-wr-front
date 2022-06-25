@@ -134,7 +134,7 @@ const Navbar = () => {
                                 }
                                 </NavItem>
                                 <div className={userMenu ? 'menu active' : 'menu'}>
-                                    <h3>{user.name}</h3>
+                                    <h3>{userData.pseudo}</h3>
                                     <ul>
                                         <li>
                                             <Link to='/profil'>

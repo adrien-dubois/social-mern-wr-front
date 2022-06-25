@@ -35,8 +35,42 @@ export const Div = styled.div`
                 flex-direction: column;
                 align-items: center;
 
-                
-            &__left{
+            }    
+            &__right{
+                &__bio{
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+
+                    h3{
+                        text-align: center;
+                    }
+
+                    p, textarea{
+                        margin: 2rem auto;
+                        padding: 2rem 3rem;
+                        background: rgba(255, 255, 255, 0.05);
+                        border-radius: 16px;
+                        backdrop-filter: blur(5px);
+                        -webkit-backdrop-filter: blur(5px);
+                        border: 2px solid rgba(0, 0, 0, 0.692);
+                    }
+
+                    p{
+                        font-style: italic;
+                        color: var(--grey-color);
+                    }
+
+                    textarea{
+                        font-family: var(--ubuntu-font);
+                        color: var(--white-color);
+                        
+                    }
+
+                    button{
+                        margin-top: 2rem;
+                    }
+                }
                 
             }
         }

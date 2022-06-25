@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { useSelector } from 'react-redux';
 import * as S from '../Upload64/Upload64.elements';
-import { BsUpload } from 'react-icons/bs';
+import { BsTrash, BsUpload } from 'react-icons/bs';
 import defaultPic from '../img/user.png'
 import { ImSpinner2 } from 'react-icons/im';
 import { Loader } from '@mantine/core';
 import { useAppDispatch, AppDispatch } from '../../index';
-import { editUserPic } from '../../actions/User';
+import { editUserPic, removeUserPic } from '../../actions/User';
 
 const Upload64 = () => {
 
@@ -42,7 +42,6 @@ const Upload64 = () => {
         setIsLoading(true);
         e.preventDefault();
         let payload = { image: base64 }
-        // console.log(base64)
         setTimeout(() => {
             dispatch(editUserPic(payload));
             setIsLoading(false);
@@ -70,6 +69,11 @@ const Upload64 = () => {
         setSize("")
         setName("")
         setImgPreview("")
+    }
+
+    const handleRemove = (e: any) => {
+        e.preventDefault();
+        dispatch(removeUserPic());
     }
 
   return (
@@ -113,19 +117,24 @@ const Upload64 = () => {
                         
                         {imgPreview === "" &&
                         <>
-                        <S.BtnSvg>
-                            <BsUpload />
-                            <input 
-                                type="file" 
-                                name='avatar' 
-                                id='file'
-                                accept='image/png,
-                                        image/jpg,
-                                        image/jpeg'
-                                onChange={picUpload}
-                                src={imgPreview}
-                            /> 
-                        </S.BtnSvg>
+                        <div className="card__btns">
+                            <S.BtnSvg>
+                                <BsUpload />
+                                <input 
+                                    type="file" 
+                                    name='avatar' 
+                                    id='file'
+                                    accept='image/png,
+                                            image/jpg,
+                                            image/jpeg'
+                                    onChange={picUpload}
+                                    src={imgPreview}
+                                /> 
+                            </S.BtnSvg>
+                            <S.BtnDel onClick={handleRemove} >
+                                <BsTrash/>
+                            </S.BtnDel>
+                        </div>
                         <br/>
                         <h3 className='upload_subtitle'>Veuillez sélectionner une nouvelle image si vous souhaitez en changer.</h3>
                         </>

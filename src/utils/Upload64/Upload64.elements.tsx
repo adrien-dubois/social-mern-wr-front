@@ -23,6 +23,11 @@ export const Div = styled.div`
         align-items: center;
         position: relative;
 
+        &__btns{
+            display: flex;
+
+        }
+
         .contain{
             width: 100%;
             height: 100%;
@@ -70,9 +75,9 @@ export const Div = styled.div`
                     border-radius: 20px;
                     border: none;
                     background: #387289;
-                    width: 50%;
+                    width: 35%;
                     color: #FFF;
-                    height: 30px;
+                    height: 40px;
                     font-weight: bold;
                     cursor: pointer;
     
@@ -90,7 +95,7 @@ export const Div = styled.div`
                     background: #ed3a53;
                     width: 30%;
                     color: #FFF;
-                    height: 30px;
+                    height: 40px;
                     font-weight: bold;
                     cursor: pointer;
     
@@ -181,6 +186,38 @@ export const BtnSvg = styled.button`
     }
 
     
+`;
+
+export const BtnDel = styled.button`
+        cursor: pointer;
+    width: 120px;
+    height: 60px;
+    margin-top: 4rem;
+    margin-left: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 2px solid rgba(0, 0, 0, 0.692);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s;
+
+
+    
+    svg{
+        width: 40px;
+        height: 40px;
+        color: var(--error-color);
+        cursor: pointer;
+        transition: all 1s;
+    }
+
+    &:hover{
+        transition: all 1s;
+        box-shadow: 0px 0px 25px 2px var(--white-antique);
+    }
 `;
 
 export const Spinner = styled.div`

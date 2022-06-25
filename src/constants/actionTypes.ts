@@ -6,6 +6,8 @@ export const SIGNUP = "SIGNUP";
 /*----- USERS -----*/
 export const GET_USER = "GET_USER";
 export const PICTURE = "PICTURE";
+export const DEL_PICTURE = "DEL_PICTURE";
+export const UPDATE_BIO = "UPDATE_BIO";
 
 /*----- ERRORS AUTH -----*/
 export const CREDENTIALS = "CREDENTIALS";

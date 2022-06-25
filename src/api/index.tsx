@@ -14,8 +14,11 @@ API.interceptors.request.use((req) => {
 /*----- ENDPOINTS -----*/
 
 // AUTH
-
 export const signIn = (formData: any) => API.post('/login_check',formData);
 export const signUp = (formData: any) => API.post('/v1/register',formData);
+
+// USER
 export const getUser = () => API.get('/v1/user/datas');
 export const editPicture = (payload: any) => API.patch('/v1/user/picture', payload);
+export const deletePicture = () => API.post('/v1/user/del-picture');
+export const updateUserBio = (formData: any) => API.patch('/v1/user/update-bio', formData);
