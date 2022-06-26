@@ -46,14 +46,41 @@ export const Div = styled.div`
                         text-align: center;
                     }
 
-                    p, textarea{
-                        margin: 2rem auto;
-                        padding: 2rem 3rem;
+                    .bubble{
+                        position: relative;
+                        margin: 0 auto;
+                        margin-top: 2rem;
+                        padding: 1rem;
+                        width: 500px;
+                        max-height: 450px;
+                        min-height: 100px;
+                        text-align: center;
                         background: rgba(255, 255, 255, 0.05);
                         border-radius: 16px;
                         backdrop-filter: blur(5px);
                         -webkit-backdrop-filter: blur(5px);
                         border: 2px solid rgba(0, 0, 0, 0.692);
+
+                        &:before, &:after{
+                            content: '';
+                            position: absolute;
+                            width: 0;
+                            height: 0;
+                        }
+                    }
+
+                    .speech:before{
+                        left: 30px;
+                        bottom: -50px;
+                        border: 25px solid;
+                        border-color: rgba(0, 0, 0, 0.692) transparent transparent rgba(0, 0, 0, 0.692);
+                    }
+
+                    .speech:after{
+                        left: 31px;
+                        bottom: -47px;
+                        border: 25px solid;
+                        border-color: #47475E transparent transparent #47475E;
                     }
 
                     p{
@@ -64,11 +91,16 @@ export const Div = styled.div`
                     textarea{
                         font-family: var(--ubuntu-font);
                         color: var(--white-color);
+                        font-weight: 400;
+                        font-size: 1rem;
                         
                     }
 
                     button{
+                        margin: 0 auto;
                         margin-top: 2rem;
+                        width: 40%;
+                        justify-content: center;
                     }
                 }
                 

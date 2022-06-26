@@ -5,6 +5,7 @@ import Upload64 from '../../utils/Upload64/Upload64';
 import { useState } from "react";
 import { AppDispatch, useAppDispatch } from '../../index';
 import { updateBio } from "../../actions/User";
+import { Button } from "../../GlobalStyles";
 
 const UpdateProfil = () => {
 
@@ -37,25 +38,32 @@ const UpdateProfil = () => {
 
                 {updateForm === false && (
                   <>
-                    <p onClick={() => setUpdateForm(!updateForm)} >
+                    <p className="bubble speech" onClick={() => setUpdateForm(!updateForm)} >
                       {userData.bio}
                     </p>
-                    <button onClick={() => setUpdateForm(!updateForm)} >
-                      Modifier bio
-                    </button>
+                    <Button 
+                      big={false} 
+                      fontBig={false} 
+                      className="navBtn" 
+                      onClick={() => setUpdateForm(!updateForm)} 
+                    > Modifier bio </Button>
                   </>
                 )}
                 {updateForm && (
                   <>
                     <textarea
                       typeof="string"
+                      className="bubble speech"
                       defaultValue={userData.bio}
                       name="bio"
                       onChange={(e) => setBio(e.target.value)}
                     ></textarea>
-                    <button onClick={handleUpdate} >
-                      Valider modifications
-                    </button>
+                    <Button 
+                    big={false} 
+                    fontBig={false} 
+                    className="navBtn"
+                    onClick={handleUpdate} 
+                    >Valider</Button>
                   </>
                 )}
 

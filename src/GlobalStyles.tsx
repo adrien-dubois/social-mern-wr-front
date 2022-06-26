@@ -21,6 +21,7 @@ const GlobalStyles = createGlobalStyle`
         --blue-color: #4B59F7;
         --welcome-bg: #0F0E13;
         --input-color: #302D4D;
+        --transparent-color: rgba(255, 255, 255, 0.05);
         /*----- GRADIENT ------*/
         --dark-welcome: radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
         --btn-gradient: linear-gradient(to right, #f43b47, #453a94) 1;
