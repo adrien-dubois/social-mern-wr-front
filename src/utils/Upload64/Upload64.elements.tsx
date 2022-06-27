@@ -189,7 +189,7 @@ export const BtnSvg = styled.button`
 `;
 
 export const BtnDel = styled.button`
-        cursor: pointer;
+    cursor: pointer;
     width: 120px;
     height: 60px;
     margin-top: 4rem;

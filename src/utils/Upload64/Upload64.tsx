@@ -111,7 +111,9 @@ const Upload64 = () => {
                                     </>
                                 }
                                 </button>
-                                <button type="button" className='btn-container__remove'  onClick={remove}>Enlever</button>
+                                <button type="button" className='btn-container__remove'  onClick={remove}>
+                                    Enlever
+                                </button>
                             </div>
                         </div>
                         

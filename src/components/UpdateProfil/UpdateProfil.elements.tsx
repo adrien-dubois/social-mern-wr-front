@@ -37,6 +37,16 @@ export const Div = styled.div`
 
             }    
             &__right{
+                
+                h4{
+                    margin: 1.5rem auto;
+
+                    span{
+                        color: var(--white-antique);
+                        font-style: italic;
+                    }
+                }
+
                 &__bio{
                     display: flex;
                     justify-content: center;
@@ -44,6 +54,51 @@ export const Div = styled.div`
 
                     h3{
                         text-align: center;
+                    }
+
+                    .btn-container{
+                        display: flex;
+                        align-items: center;
+                        flex-direction: column;
+                        width: 100%;
+                        text-align: center;
+
+                        &__valid{
+                            margin: 15px 0;
+                            border-radius: 20px;
+                            border: none;
+                            background: #387289;
+                            width: 35%;
+                            color: #FFF;
+                            height: 40px;
+                            font-weight: bold;
+                            cursor: pointer;
+            
+                            &:hover{
+                                transition: all 1s;
+                                background: #66CBBC;
+            
+                            }
+                        }
+            
+                        &__remove{
+                            margin: 0 auto;
+                            margin-bottom: 15px;
+                            border-radius: 20px;
+                            border: none;
+                            background: #ed3a53;
+                            width: 30%;
+                            color: #FFF;
+                            height: 40px;
+                            font-weight: bold;
+                            cursor: pointer;
+            
+                            &:hover{
+                                transition: all 1s;
+                                background: #fd637b;
+            
+                            }
+                        }
                     }
 
                     .bubble{
@@ -85,7 +140,8 @@ export const Div = styled.div`
 
                     p{
                         font-style: italic;
-                        color: var(--grey-color);
+                        font-weight: 600;
+                        color: var(--white-antique);
                     }
 
                     textarea{
@@ -98,7 +154,7 @@ export const Div = styled.div`
 
                     button{
                         margin: 0 auto;
-                        margin-top: 2rem;
+                        margin-top: 3rem;
                         width: 40%;
                         justify-content: center;
                     }

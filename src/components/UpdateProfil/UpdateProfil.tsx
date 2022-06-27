@@ -6,6 +6,7 @@ import { useState } from "react";
 import { AppDispatch, useAppDispatch } from '../../index';
 import { updateBio } from "../../actions/User";
 import { Button } from "../../GlobalStyles";
+import { DateParser } from '../../utils/DateParser';
 
 const UpdateProfil = () => {
 
@@ -18,6 +19,10 @@ const UpdateProfil = () => {
     const bios = JSON.stringify(bio);
     dispatch(updateBio(bios));
     setUpdateForm(false);
+  }
+
+  const sendAbort = () => {
+    setUpdateForm(false)
   }
 
   return (
@@ -58,16 +63,26 @@ const UpdateProfil = () => {
                       name="bio"
                       onChange={(e) => setBio(e.target.value)}
                     ></textarea>
-                    <Button 
-                    big={false} 
-                    fontBig={false} 
-                    className="navBtn"
-                    onClick={handleUpdate} 
-                    >Valider</Button>
+                    <div className="btn-container">
+                      <button 
+                      className="btn-container__valid"
+                      onClick={handleUpdate} 
+                      >Valider</button>
+                      
+                      <button 
+                      className="btn-container__remove"
+                      onClick={sendAbort} 
+                      >Annuler</button>
+                    </div>
+                    
                   </>
                 )}
-
               </div>
+
+              <h4>
+                Membre depuis : &nbsp; <span>{DateParser(userData.createdAt)}</span>
+              </h4>
+
             </div>
 
           </div>
