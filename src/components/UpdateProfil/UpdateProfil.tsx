@@ -7,6 +7,7 @@ import { AppDispatch, useAppDispatch } from '../../index';
 import { updateBio } from "../../actions/User";
 import { Button } from "../../GlobalStyles";
 import { DateParser } from '../../utils/DateParser';
+import ModalFoer from "../Modals/ModalFoer";
 
 const UpdateProfil = () => {
 
@@ -14,6 +15,10 @@ const UpdateProfil = () => {
   const userData = useSelector((state: any) => state.user);
   const [updateForm, setUpdateForm] = useState<boolean>(false);
   const [bio, setBio] = useState("");
+
+  /*----- MODALS -----*/
+  const [followingModal, setFollowingModal] = useState<boolean>(false);
+  const [followersModal, setFollowersModal] = useState<boolean>(false);
 
   const handleUpdate = () => {
     const bios = JSON.stringify(bio);
@@ -83,8 +88,19 @@ const UpdateProfil = () => {
                 Membre depuis : &nbsp; <span>{DateParser(userData.createdAt)}</span>
               </h4>
 
-            </div>
+              <div className="btn-container">
+                <h5 className="btn-container__valid follow" onClick={() => setFollowingModal(!followingModal)} >
+                  Abonnements : &nbsp; <span>{userData.following ? userData.following.length : "0" }</span>
+                </h5>
 
+                <h5 className="btn-container__valid follow" onClick={() => setFollowersModal(!followersModal)} >
+                  Abonnés : &nbsp; <span>{userData.follower ? userData.follower.length : "0" }</span>
+                </h5> 
+              </div>
+            </div>
+            {followersModal &&
+              <ModalFoer showModal={followersModal} setShowModal={setFollowersModal} />
+            }
           </div>
         </div>
     </Div>

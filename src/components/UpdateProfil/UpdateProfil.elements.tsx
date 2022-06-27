@@ -47,6 +47,61 @@ export const Div = styled.div`
                     }
                 }
 
+                .btn-container{
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    width: 100%;
+                    text-align: center;
+
+                    &__valid{
+                        margin: 15px 0;
+                        border-radius: 20px;
+                        border: none;
+                        background: #387289;
+                        width: 35%;
+                        color: #FFF;
+                        height: 40px;
+                        font-weight: bold;
+                        cursor: pointer;
+        
+                        &:hover{
+                            transition: all 1s;
+                            background: #66CBBC;
+        
+                        }
+
+                        &.follow{
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 30%;
+                            span{
+                                color: var(--white-antique);
+                            }
+                        }
+                    }
+        
+                    &__remove{
+                        margin: 0 auto;
+                        margin-bottom: 15px;
+                        border-radius: 20px;
+                        border: none;
+                        background: #ed3a53;
+                        width: 30%;
+                        color: #FFF;
+                        height: 40px;
+                        font-weight: bold;
+                        cursor: pointer;
+        
+                        &:hover{
+                            transition: all 1s;
+                            background: #fd637b;
+        
+                        }
+                    }
+                }
+
                 &__bio{
                     display: flex;
                     justify-content: center;
@@ -56,50 +111,6 @@ export const Div = styled.div`
                         text-align: center;
                     }
 
-                    .btn-container{
-                        display: flex;
-                        align-items: center;
-                        flex-direction: column;
-                        width: 100%;
-                        text-align: center;
-
-                        &__valid{
-                            margin: 15px 0;
-                            border-radius: 20px;
-                            border: none;
-                            background: #387289;
-                            width: 35%;
-                            color: #FFF;
-                            height: 40px;
-                            font-weight: bold;
-                            cursor: pointer;
-            
-                            &:hover{
-                                transition: all 1s;
-                                background: #66CBBC;
-            
-                            }
-                        }
-            
-                        &__remove{
-                            margin: 0 auto;
-                            margin-bottom: 15px;
-                            border-radius: 20px;
-                            border: none;
-                            background: #ed3a53;
-                            width: 30%;
-                            color: #FFF;
-                            height: 40px;
-                            font-weight: bold;
-                            cursor: pointer;
-            
-                            &:hover{
-                                transition: all 1s;
-                                background: #fd637b;
-            
-                            }
-                        }
-                    }
 
                     .bubble{
                         position: relative;
