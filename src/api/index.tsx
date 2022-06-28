@@ -22,3 +22,6 @@ export const getUser = () => API.get('/v1/user/datas');
 export const editPicture = (payload: any) => API.patch('/v1/user/picture', payload);
 export const deletePicture = () => API.post('/v1/user/del-picture');
 export const updateUserBio = (formData: any) => API.patch('/v1/user/update-bio', formData);
+
+// FOLLOWS
+export const getAllUsers = () => API.get('/v1/user/');

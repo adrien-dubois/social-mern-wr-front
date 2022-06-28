@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import rootReducer from './reducers/rootReducer'
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { getAllUsers } from './actions/Follow';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -21,6 +22,8 @@ const store = createStore(
   rootReducer,
   composedEnhancer
 )
+
+store.dispatch(getAllUsers());
 
 root.render(
   <Provider store={store}>

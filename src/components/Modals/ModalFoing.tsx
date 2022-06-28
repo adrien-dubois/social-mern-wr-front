@@ -7,7 +7,8 @@ type ModalProps = {
     setShowModal: any
 }
 
-const ModalFoer: FunctionComponent<ModalProps> = ({showModal, setShowModal}) => {
+const ModalFoing : FunctionComponent<ModalProps> = ({showModal, setShowModal}) => {
+
     const modalRef = useRef<any>();
 
     const animation = useSpring({
@@ -39,13 +40,18 @@ const ModalFoer: FunctionComponent<ModalProps> = ({showModal, setShowModal}) => 
         <Background ref={modalRef} onClick={closeModal}>
           <animated.div style={animation}>
             <ModalWrapper showModal={showModal}>
-              <ModalContent>
-                
-              </ModalContent>
-              <CloseModalButton 
-                  aria-label='Close modal' 
-                  onClick={() => setShowModal((prev: any) => !prev)} 
-              />
+
+                <ModalContent>
+                    <h2>Abonnements</h2>
+                    <ul>
+                    </ul>
+                <p>Following</p>
+                </ModalContent>
+
+            <CloseModalButton 
+                aria-label='Close modal' 
+                onClick={() => setShowModal((prev: any) => !prev)} 
+            />
             </ModalWrapper>
           </animated.div>
         </Background>
@@ -54,4 +60,5 @@ const ModalFoer: FunctionComponent<ModalProps> = ({showModal, setShowModal}) => 
   )
 }
 
-export default ModalFoer
+
+export default ModalFoing

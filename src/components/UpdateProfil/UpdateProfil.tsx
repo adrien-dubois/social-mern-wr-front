@@ -8,6 +8,7 @@ import { updateBio } from "../../actions/User";
 import { Button } from "../../GlobalStyles";
 import { DateParser } from '../../utils/DateParser';
 import ModalFoer from "../Modals/ModalFoer";
+import ModalFoing from "../Modals/ModalFoing";
 
 const UpdateProfil = () => {
 
@@ -100,6 +101,9 @@ const UpdateProfil = () => {
             </div>
             {followersModal &&
               <ModalFoer showModal={followersModal} setShowModal={setFollowersModal} />
+            }
+            {followingModal &&
+              <ModalFoing showModal={followingModal} setShowModal={setFollowingModal} />
             }
           </div>
         </div>
