@@ -1,6 +1,8 @@
-import { FunctionComponent, useCallback, useEffect, useRef } from 'react'
-import { useSpring, animated } from 'react-spring'
-import { Background, CloseModalButton, ModalContent, ModalWrapper } from './Modal.elements'
+import { FunctionComponent, useCallback, useEffect, useRef } from 'react';
+import { useSelector } from 'react-redux';
+import { useSpring, animated } from 'react-spring';
+import { Background, CloseModalButton, ModalContent, ModalWrapper } from './Modal.elements';
+import defaultPic from '../../utils/img/user.png';
 
 type ModalProps = {
     showModal: boolean,
@@ -11,16 +13,22 @@ const ModalFoing : FunctionComponent<ModalProps> = ({showModal, setShowModal}) =
 
     const modalRef = useRef<any>();
 
+    /*----- STORE ----*/
+    const userData = useSelector((state: any) => state.user);
+    const followData = useSelector((state: any) => state.follows);
+
     const animation = useSpring({
-      config: {
-        duration: 250
-      },
-      opacity: showModal ? 1 : 0,
-      transform: showModal ? `translateY(0%)` : `translateY(-100%)`
+        config: {
+            duration: 250
+        },
+        opacity: showModal ? 1 :0,
+        transform: showModal ? `translateY(0%)` : `translateY(-100%)`
     })
 
     const closeModal = (e: any) => {
-      if(modalRef.current === e.target) setShowModal(false);
+      if(modalRef.current === e.target){
+        setShowModal(false)
+      };
     }
 
     const keyPress = useCallback((e: any) => {
@@ -44,8 +52,29 @@ const ModalFoing : FunctionComponent<ModalProps> = ({showModal, setShowModal}) =
                 <ModalContent>
                     <h2>Abonnements</h2>
                     <ul>
+                        {followData.map((user: any) => {
+                            const avatar = user.picture;
+                            for(let i = 0; i < userData.following.length; i++) {
+                                if(user.id === userData.following[i].id) {
+                                    return (
+                                        <li key={user.id}>
+
+                                        { avatar ? 
+                                            <img src={avatar} alt='user-pic' />
+                                            :
+                                            <img src={defaultPic} alt='user-pic' />
+                                        }
+
+                                            <div className="modal-infos">
+                                                <h4>{user.pseudo} </h4>
+                                                <button>FOLLOW</button>
+                                            </div>
+                                        </li>
+                                    );
+                                }
+                            }
+                        })}
                     </ul>
-                <p>Following</p>
                 </ModalContent>
 
             <CloseModalButton 

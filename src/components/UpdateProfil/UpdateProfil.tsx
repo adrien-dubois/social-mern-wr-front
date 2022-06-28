@@ -12,8 +12,10 @@ import ModalFoing from "../Modals/ModalFoing";
 
 const UpdateProfil = () => {
 
+  /*----- STORE -----*/
   const dispatch: AppDispatch = useAppDispatch();
   const userData = useSelector((state: any) => state.user);
+
   const [updateForm, setUpdateForm] = useState<boolean>(false);
   const [bio, setBio] = useState("");
 

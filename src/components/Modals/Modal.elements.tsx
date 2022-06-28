@@ -59,6 +59,7 @@ export const ModalContent = styled.div`
     }
 
     ul{
+        width: 70%;
         margin-bottom: .8rem;
         text-align: center;
         counter-reset: index;
@@ -85,10 +86,43 @@ export const ModalContent = styled.div`
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
             }
+
+            .modal-infos{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            img{
+                width: auto;
+                max-height: 115px;
+                border-radius: 14px;
+                border: 1.8px solid rgba(255, 255, 255, 0.3);
+            }
+            button{
+                padding: 10px 24px;
+                background-image: linear-gradient(to right, #f43b47 0%, #453a94 100%);
+                background-size: 200% auto;
+                white-space: nowrap;
+                color: var(--white-antique);
+                font-weight: 600;
+                margin-top: .5rem;
+                border: none;
+                text-transform: uppercase;
+                border-radius: 24px;
+                cursor: pointer;
+                transition: all .4s ease-in;
+
+                &:hover{
+                    background-position: right center;
+                    box-shadow: 0 0 10px var(--white-antique);
+                }
+            }
         }
-        
+
         li + li{
-            border-top: 1px solid rgba(0, 0, 0, .2);
+            border-top: 2px solid rgba(0, 0, 0, .2);
         }
     }
 `;
