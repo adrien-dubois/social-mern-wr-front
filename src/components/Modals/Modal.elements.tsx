@@ -15,6 +15,7 @@ export const Background = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: 10;
 `;
 
 export const ModalWrapper = styled.div<{showModal: boolean}>`
@@ -25,24 +26,13 @@ export const ModalWrapper = styled.div<{showModal: boolean}>`
     color: var(--white-antique);
     display: grid;
     position: relative;
-    z-index: 10;
+    z-index: 1000;
     border-radius: 10px;
 
     @media screen and (min-width: 1080px) and (max-width: 1600px) {
         width: 650px;
         height: 550px;
     }
-`;
-
-export const CloseModalButton = styled(MdClose)`
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 32px;
-    height: 32px;
-    padding: 0;
-    z-index: 10;
 `;
 
 export const ModalContent = styled.div`
@@ -96,7 +86,7 @@ export const ModalContent = styled.div`
 
             img{
                 width: auto;
-                max-height: 115px;
+                max-height: 85px;
                 border-radius: 14px;
                 border: 1.8px solid rgba(255, 255, 255, 0.3);
             }
@@ -125,4 +115,16 @@ export const ModalContent = styled.div`
             border-top: 2px solid rgba(0, 0, 0, .2);
         }
     }
+`;
+
+
+export const CloseModalButton = styled(MdClose)`
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    z-index: 10;
 `;

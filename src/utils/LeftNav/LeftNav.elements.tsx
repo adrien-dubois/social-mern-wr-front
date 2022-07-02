@@ -9,7 +9,7 @@ export const Div = styled.div`
 
     .icons{
         position: fixed;
-        z-index: 10;
+        z-index: 5;
 
         @media screen and(max-width: 590px) {
              margin: 2px 0 0 -9px;

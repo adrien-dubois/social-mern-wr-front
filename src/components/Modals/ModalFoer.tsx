@@ -1,6 +1,9 @@
 import { FunctionComponent, useCallback, useEffect, useRef } from 'react'
 import { useSpring, animated } from 'react-spring'
+import { useSelector } from 'react-redux';
 import { Background, CloseModalButton, ModalContent, ModalWrapper } from './Modal.elements'
+import defaultPic from '../../utils/img/user.png';
+import FollowHandler from '../FollowHandler/FollowHandler';
 
 type ModalProps = {
     showModal: boolean,
@@ -9,6 +12,10 @@ type ModalProps = {
 
 const ModalFoer: FunctionComponent<ModalProps> = ({showModal, setShowModal}) => {
     const modalRef = useRef<any>();
+
+    /*----- STORE ----*/
+    const userData = useSelector((state: any) => state.user);
+    const followData = useSelector((state: any) => state.follows);
 
     const animation = useSpring({
       config: {
@@ -19,7 +26,9 @@ const ModalFoer: FunctionComponent<ModalProps> = ({showModal, setShowModal}) => 
     })
 
     const closeModal = (e: any) => {
-      if(modalRef.current === e.target) setShowModal(false);
+      if(modalRef.current === e.target) {
+        setShowModal(false);
+      }
     }
 
     const keyPress = useCallback((e: any) => {
@@ -39,9 +48,33 @@ const ModalFoer: FunctionComponent<ModalProps> = ({showModal, setShowModal}) => 
         <Background ref={modalRef} onClick={closeModal}>
           <animated.div style={animation}>
             <ModalWrapper showModal={showModal}>
-              <ModalContent>
-                
-              </ModalContent>
+            <ModalContent>
+                    <h2>Abonnés</h2>
+                    <ul>
+                        {followData.map((user: any) => {
+                            const avatar = user.picture;
+                            for(let i = 0; i < userData.follower.length; i++) {
+                                if(user.id === userData.follower[i].id) {
+                                    return (
+                                        <li key={user.id}>
+
+                                        { avatar ? 
+                                            <img src={avatar} alt='user-pic' />
+                                            :
+                                            <img src={defaultPic} alt='user-pic' />
+                                        }
+
+                                            <div className="modal-infos">
+                                                <h4>{user.pseudo} </h4>
+                                                <FollowHandler idToFollow={6} />
+                                            </div>
+                                        </li>
+                                    );
+                                }
+                            }
+                        })}
+                    </ul>
+                </ModalContent>
               <CloseModalButton 
                   aria-label='Close modal' 
                   onClick={() => setShowModal((prev: any) => !prev)} 

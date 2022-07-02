@@ -28,7 +28,7 @@ store.dispatch(getAllUsers());
 root.render(
   <Provider store={store}>
     <NotificationsProvider
-      position='top-right'
+      position='bottom-right'
       zIndex={2077}
       containerWidth={300}
     >
