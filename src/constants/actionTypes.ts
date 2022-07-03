@@ -11,6 +11,8 @@ export const UPDATE_BIO = "UPDATE_BIO";
 
 /*----- FOLLOWS -----*/
 export const GET_ALL = "GET_ALL";
+export const FOLLOW = "FOLLOW";
+export const UNFOLLOW = "UNFOLLOW";
 
 /*----- ERRORS AUTH -----*/
 export const CREDENTIALS = "CREDENTIALS";

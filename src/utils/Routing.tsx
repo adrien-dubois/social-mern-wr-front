@@ -1,5 +1,4 @@
 import { 
-    BrowserRouter as Router,
     Navigate,
     Route, 
     Routes 
@@ -13,7 +12,6 @@ import GoToTop from './GoToTop';
 const Routing = () => {
   return (
     <>
-    <Router>
       <GoToTop/>
         <Routes>
             <Route path='/' element={<Home/>}/>
@@ -21,7 +19,6 @@ const Routing = () => {
             <Route path='/trending' element={<Trending/>}/>
             <Route path="*" element={<Navigate to="/" replace/>} />
         </Routes>
-      </Router>
       </>
   )
 }

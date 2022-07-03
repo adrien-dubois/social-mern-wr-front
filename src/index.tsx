@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux';
 import rootReducer from './reducers/rootReducer'
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { getAllUsers } from './actions/Follow';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -26,15 +27,17 @@ const store = createStore(
 store.dispatch(getAllUsers());
 
 root.render(
-  <Provider store={store}>
-    <NotificationsProvider
-      position='bottom-right'
-      zIndex={2077}
-      containerWidth={300}
-    >
-      <App />
-    </NotificationsProvider>
-  </Provider>
+  <Router>
+    <Provider store={store}>
+      <NotificationsProvider
+        position='bottom-right'
+        zIndex={2077}
+        containerWidth={300}
+      >
+        <App />
+      </NotificationsProvider>
+    </Provider>
+  </Router>
 );
 
 export default store;

@@ -25,3 +25,5 @@ export const updateUserBio = (formData: any) => API.patch('/v1/user/update-bio',
 
 // FOLLOWS
 export const getAllUsers = () => API.get('/v1/user/');
+export const follows = (idToFollow: any) => API.patch(`/v1/user/follow/${idToFollow}`);
+export const unfollows = (idToUnfollow: any) => API.patch(`/v1/user/unfollow/${idToUnfollow}`);

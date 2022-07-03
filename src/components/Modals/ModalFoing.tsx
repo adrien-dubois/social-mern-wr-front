@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useSpring, animated } from 'react-spring';
 import { Background, CloseModalButton, ModalContent, ModalWrapper } from './Modal.elements';
 import defaultPic from '../../utils/img/user.png';
+import FollowHandler from '../FollowHandler/FollowHandler';
 
 type ModalProps = {
     showModal: boolean,
@@ -67,7 +68,7 @@ const ModalFoing : FunctionComponent<ModalProps> = ({showModal, setShowModal}) =
 
                                             <div className="modal-infos">
                                                 <h4>{user.pseudo} </h4>
-                                                <button>FOLLOW</button>
+                                                  <FollowHandler idToFollow={user.id} />
                                             </div>
                                         </li>
                                     );
