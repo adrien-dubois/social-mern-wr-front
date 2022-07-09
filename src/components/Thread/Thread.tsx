@@ -4,8 +4,8 @@ import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../..';
 import IsEmpty from '../../utils/IsEmpty';
 import { Div } from './Thread.elements';
-import { Loader } from '@mantine/core';
 import { getPosts } from '../../actions/Post';
+import Card from '../Post/Card';
 
 const Thread = () => {
 
@@ -22,20 +22,16 @@ const Thread = () => {
         dispatch(getPosts());
         setLoadPost(false);
       }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [loadPost]);
 
   return (
     <Div>
       <ul>
-        {!IsEmpty(posts[0]) ? 
+        {!IsEmpty(posts[0]) && 
             posts.map((post: any) => {
-              return (
-                <li>{post.id} </li>
-              )
-            })  
-            : 
-          <Loader color="orange" size="sm" />
-        }
+              return <Card post={post} key={post.id} /> ;
+            })}
       </ul>
     </Div>
   )

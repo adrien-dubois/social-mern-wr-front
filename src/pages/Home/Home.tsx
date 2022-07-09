@@ -19,6 +19,7 @@ const Home = () => {
           <p>Pas connecté</p>
         }
         </div>
+        <div className="home-container__right"></div>
       </div>
     </Div>
   )

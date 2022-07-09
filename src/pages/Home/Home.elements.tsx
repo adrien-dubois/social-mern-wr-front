@@ -12,12 +12,15 @@ export const Div = styled.div`
     .home-container{
         position: absolute;
         top: 13%;
-        width: 100%;
-        height: 100%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: grid;
+        grid-template-columns: 60px 1fr 375px ;
         margin: 0 50px;
 
         &__main{
-            margin: 1rem 100px 0;
+            margin: 1rem;
         }  
     }
 `;
