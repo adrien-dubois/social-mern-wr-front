@@ -8,4 +8,16 @@ export const Div = styled.div`
     color: var (--white-color);
     position: relative;
     overflow: hidden;
+
+    .home-container{
+        position: absolute;
+        top: 13%;
+        width: 100%;
+        height: 100%;
+        margin: 0 50px;
+
+        &__main{
+            margin: 1rem 100px 0;
+        }  
+    }
 `;

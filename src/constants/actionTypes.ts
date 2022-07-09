@@ -14,6 +14,9 @@ export const GET_ALL = "GET_ALL";
 export const FOLLOW = "FOLLOW";
 export const UNFOLLOW = "UNFOLLOW";
 
+/*----- POST -----*/
+export const GET_POSTS = "GET_POSTS";
+
 /*----- ERRORS AUTH -----*/
 export const CREDENTIALS = "CREDENTIALS";
 export const VALIDATE = "VALIDATE";

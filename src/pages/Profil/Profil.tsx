@@ -6,7 +6,7 @@ import { Div } from './Profil.elements';
 
 const Profil = () => {
 
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')!));
+  const user = localStorage.getItem('profile');
   return (
     <>
       <Div>
