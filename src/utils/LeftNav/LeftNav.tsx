@@ -13,17 +13,17 @@ const LeftNav = () => {
                 <div className="icons__bis">
 
                     {/* HOME */}
-                    <NavLink to="/" className={(navData) => navData.isActive ? "active" : ""} >
+                    <NavLink to="/" className={(navData) => navData.isActive ? "actived" : ""} >
                         <TbHome/>
                     </NavLink>
                     <br/>
                     {/* ROCKET */}
-                    <NavLink to="/trending" className={(navData) => navData.isActive ? "active" : ""} >
+                    <NavLink to="/trending" className={(navData) => navData.isActive ? "actived" : ""} >
                         <IoRocketOutline/>
                     </NavLink>
                     <br/>
                     {/* PROFILE */}
-                    <NavLink to="/profil" className={(navData) => navData.isActive ? "active" : ""} >
+                    <NavLink to="/profil" className={(navData) => navData.isActive ? "actived" : ""} >
                         <TbUser/>
                     </NavLink>
 

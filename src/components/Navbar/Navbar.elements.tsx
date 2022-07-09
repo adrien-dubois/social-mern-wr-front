@@ -124,18 +124,18 @@ export const NavMenu = styled.ul<{opened: boolean}>`
         padding: 0.75rem;
         width: 70vw;
         height: 100vh;
-        position: absolute;
+        /* position: absolute; */
         top: 80px;
         background: rgb(39, 51, 89, 0.4);
         border-radius: 0 16px 16px 0;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
         border: 1px solid rgba(0, 0, 0, 0.3);
         left: ${({ opened }) => (opened ? 0 : '-100%')};
         opacity: 1;
         transition: all 0.5s ease;
-        z-index: 10;
+        z-index: 100;
     }
     
 `;

@@ -3,6 +3,8 @@ import { FunctionComponent, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import IsEmpty from '../../utils/IsEmpty';
 import { Li } from './Card.elements';
+import defaultPic from '../../utils/img/user.png';
+import { DateParser } from '../../utils/DateParser';
 
 type CardProps = {
     post: any;
@@ -28,7 +30,40 @@ const Card: FunctionComponent<CardProps> = ({ post }) => {
         {isLoading ? (
             <Loader color="orange" size="sm" />
         ) : (
-            <h2>test</h2>
+            <>
+                <div className="card-left">
+                    
+                    {!IsEmpty(followsData[0]) && 
+                        followsData.map((user: any) => {
+                            const avatar = user.picture;
+                            if(user.id === post.author.id) {
+                                return (
+                                        <img src={avatar ? avatar : defaultPic} alt='user-pic' /> 
+                                    )
+                            }
+                            return null;
+                        })    
+                        
+                    }
+                </div>
+
+                <div className="card-right">
+                    <div className="card-right__header">
+                        <div className="card-right__header__pseudo">
+                            <h3>
+                                {
+                                    !IsEmpty(followsData[0]) &&
+                                    followsData.map((user: any) => {
+                                        if(user.id === post.author.id) return user.pseudo;
+                                        return null
+                                    })
+                                }
+                            </h3>
+                        </div>
+                        <span>{DateParser(post.createdAt)} </span>
+                    </div>
+                </div>
+            </>
         )}
     </Li>
   )

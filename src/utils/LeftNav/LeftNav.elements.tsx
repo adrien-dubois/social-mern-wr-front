@@ -66,7 +66,7 @@ export const Div = styled.div`
                 }
             }
 
-            .active{
+            .actived{
                 position: relative;
 
                 &::after{
