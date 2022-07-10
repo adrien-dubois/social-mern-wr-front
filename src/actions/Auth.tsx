@@ -16,7 +16,7 @@ import {
 } from '../constants/actionTypes';
 
 /*----- Login Method -----*/
-export const signin = (formData: any, navigate: NavigateFunction) => async (dispatch: AppDispatch) => {
+export const signin = (formData: any) => async (dispatch: AppDispatch) => {
     try {
         const { data } = await api.signIn(formData);
 
@@ -33,7 +33,7 @@ export const signin = (formData: any, navigate: NavigateFunction) => async (disp
             icon: <GiRabbitHead/>,
         });
 
-        navigate("/");
+        window.location.href="/";
 
     } catch (error: any) {
 

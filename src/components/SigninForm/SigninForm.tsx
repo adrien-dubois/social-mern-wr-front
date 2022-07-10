@@ -7,7 +7,6 @@ import InputPassword from '../../utils/InputPassword/InputPassword';
 import { Div } from './SigninForm.elements'
 import { AppDispatch } from '../../index';
 import { resetErrors, signin } from '../../actions/Auth';
-import { NavigateFunction, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ErrorNotification from '../../utils/ErrorNotifications';
 
@@ -17,7 +16,6 @@ const SigninForm = () => {
 
   /*----- HOOKS -----*/
   const dispatch: AppDispatch = useDispatch();
-  const navigate: NavigateFunction = useNavigate();
 
   interface RootState {
     auth: any,
@@ -35,7 +33,7 @@ const SigninForm = () => {
 
   const handleLogin = (e: any) => {
     e.preventDefault();
-    dispatch(signin(formData, navigate));
+    dispatch(signin(formData));
   }
 
   // This handler will target the right input to the right value in the initial state

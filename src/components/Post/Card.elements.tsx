@@ -76,7 +76,7 @@ export const Li = styled.li`
             span {
                 font-style: italic;
                 font-family: var(--font-ubuntu);
-                color: var(--white-antique);
+                color: var(--grey-color);
 
                 @media screen and(max-width: 440px) {
                     transform: translate(52px, -20px);
@@ -101,13 +101,14 @@ export const Li = styled.li`
                         padding: 0;
                     }
 
-                    img {
+                    svg {
                         padding: 5px;
                         cursor: pointer;
                         transition: 0.15s;
                         box-shadow: none;
                         height: 28px;
                         width: 28px;
+                        color: #FFF;
 
                         &:hover {
                             transform: scale(1.2) translate(0px, 0px);

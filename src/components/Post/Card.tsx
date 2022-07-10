@@ -5,6 +5,7 @@ import IsEmpty from '../../utils/IsEmpty';
 import { Li } from './Card.elements';
 import defaultPic from '../../utils/img/user.png';
 import { DateParser } from '../../utils/DateParser';
+import FollowHandler from '../FollowHandler/FollowHandler';
 
 type CardProps = {
     post: any;
@@ -59,6 +60,9 @@ const Card: FunctionComponent<CardProps> = ({ post }) => {
                                     })
                                 }
                             </h3>
+                            {post.author.id !== userData.id &&
+                                <FollowHandler idToFollow={post.author.id} type='cards'/>
+                            }
                         </div>
                         <span>{DateParser(post.createdAt)} </span>
                     </div>

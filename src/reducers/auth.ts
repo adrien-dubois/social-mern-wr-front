@@ -16,7 +16,7 @@ const authReducer = ( state = { authData: null }, action: any ) => {
             };
         case LOGOUT:
             localStorage.clear();
-            return {...state,authData: null};
+            return window.location.href="/";
         default:
             return state;
     }

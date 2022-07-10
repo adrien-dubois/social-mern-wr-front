@@ -5,12 +5,21 @@ import IsEmpty from '../../utils/IsEmpty';
 import { FollowBtn } from './FollowHandler.elements'
 import { followUser, unfollowUser } from '../../actions/Follow';
 import { Loader } from '@mantine/core';
+import { BsCheckCircle, BsCheckCircleFill } from 'react-icons/bs';
+
+const Types = {
+  Suggest: "suggest",
+  Cards: 'cards'
+};
+
+type Types = typeof Types[keyof typeof Types];
 
 type InputProps = {
   idToFollow: any;
+  type: Types;
 }
 
-const FollowHandler : FunctionComponent<InputProps> = ({ idToFollow }) => {
+const FollowHandler : FunctionComponent<InputProps> = ({ idToFollow, type }) => {
 
   interface rootState {
     user: any
@@ -51,22 +60,34 @@ const FollowHandler : FunctionComponent<InputProps> = ({ idToFollow }) => {
 
   return (
     <>
-      {isFollowed && !IsEmpty(userData) && (
-        <FollowBtn onClick={handleUnfollow} >
-            {isLoading ? 
-              <Loader color="orange" size="sm"/>
-              :
-              <>
-                Abonné  
-              </>
-          }
-        </FollowBtn>
-      )}
-      {isFollowed === false && !IsEmpty(userData) && (
-        <FollowBtn onClick={handleFollow} >
+      {isFollowed && !IsEmpty(userData) && 
+        <span onClick={handleUnfollow} >
+        {(type as Types) === Types.Suggest && 
+
+          <FollowBtn>
+              {isLoading ? 
+                <Loader color="orange" size="sm"/>
+                :
+                <>
+                  Abonné  
+                </>
+            }
+          </FollowBtn> }
+        
+
+
+          {(type as Types === Types.Cards && <BsCheckCircleFill/>)}
+        </span>
+      }
+      {isFollowed === false && !IsEmpty(userData) && 
+      <span onClick={handleFollow}>
+        {(type as Types) === Types.Suggest && <FollowBtn>
             Suivre
-        </FollowBtn>
-      )}
+        </FollowBtn>}
+
+        {(type as Types) === Types.Cards && <BsCheckCircle/>}
+      </span>
+      }
     </>
   )
 }

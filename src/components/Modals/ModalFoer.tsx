@@ -66,7 +66,7 @@ const ModalFoer: FunctionComponent<ModalProps> = ({showModal, setShowModal}) => 
 
                                             <div className="modal-infos">
                                                 <h4>{user.pseudo} </h4>
-                                                <FollowHandler idToFollow={user.id} />
+                                                <FollowHandler idToFollow={user.id} type="suggest" />
                                             </div>
                                         </li>
                                     );
