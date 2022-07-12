@@ -118,8 +118,72 @@ export const Li = styled.li`
                 }
 
             }
+        }
 
+        &__update-post {
+            textarea {
+                font-size: 1.3rem;
+                border: 1px solid var(--grey-color);
+                padding: 10px;
+                border-radius: 20px 20px 6px 20px;
+            }
+            &__btn-container {
+                &__btn {
+                    background: var(--grey-color);
+                    width: 240px;
+                    transform: translateY(-3px);
+
+                    &:hover {
+                        background: var(--white-antique);
+                        width: 250px;
+                        letter-spacing: 1px;
+                    }
+                }
+            }
+        }
+
+        &__card-pic {
+            width: 100%;
+            border-radius: 6px;
+            margin-top: 12px;
+            box-shadow: 0 0 3px rgba(51, 51, 51, 0.342);
+        }
+
+        iframe {
+            width: 100%;
+            min-height: 330px;
+            border-radius: 6px;
+            box-shadow: 0 0 3px rgba(51, 51, 51, 0.342);
+        }
             
+        &__card-footer{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            justify-content: space-between;
+            padding: 12px 0 4px;
+
+            svg {
+                height: 22px;
+                width: 22px;
+                cursor: pointer;
+                transition: 0.2s;
+
+                &:hover {
+                    transform: scale(1.2);
+                }
+            }
+            &__comment-icon,
+            &__like-container {
+                display: flex;
+                align-items: center;
+
+                span {
+                    font-size: 1.02rem;
+                    position: absolute;
+                    transform: translate(29px, 2px);
+                }
+            }
         }
 
         
