@@ -16,6 +16,8 @@ export const UNFOLLOW = "UNFOLLOW";
 
 /*----- POST -----*/
 export const GET_POSTS = "GET_POSTS";
+export const LIKE = "LIKE";
+export const UNLIKE = "UNLIKE";
 
 /*----- ERRORS AUTH -----*/
 export const CREDENTIALS = "CREDENTIALS";

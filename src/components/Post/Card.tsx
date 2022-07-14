@@ -7,6 +7,7 @@ import defaultPic from '../../utils/img/user.png';
 import { DateParser } from '../../utils/DateParser';
 import FollowHandler from '../FollowHandler/FollowHandler';
 import { BiCommentDetail, BiShareAlt } from 'react-icons/bi';
+import LikeButton from './LikeButton';
 
 type CardProps = {
     post: any;
@@ -100,7 +101,7 @@ const Card: FunctionComponent<CardProps> = ({ post }) => {
                         </div>
 
                         {/* LIKE */}
-                        <h6>Like button</h6>
+                        <LikeButton post={post}/>
                         
                         {/* SHARE */}
                         <BiShareAlt/>
