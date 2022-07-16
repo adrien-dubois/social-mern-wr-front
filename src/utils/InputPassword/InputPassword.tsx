@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react'
+import { FunctionComponent, useState } from 'react'
 import { BiHide, BiShow } from 'react-icons/bi';
 import { FaLock } from 'react-icons/fa';
 import { Div } from './InputPassword.elements'

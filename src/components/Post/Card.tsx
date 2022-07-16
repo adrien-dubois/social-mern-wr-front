@@ -13,6 +13,7 @@ type CardProps = {
     post: any;
 }
 
+
 const Card: FunctionComponent<CardProps> = ({ post }) => {
 
     interface rootState {
@@ -20,7 +21,7 @@ const Card: FunctionComponent<CardProps> = ({ post }) => {
         user: any
     }
 
-    const [isLoading, setIsLoading] = useState<boolean>(true);
+    const [isLoading, setIsLoading] = useState(true);
     const followsData = useSelector((state: rootState) => state.follows);
     const userData = useSelector((state: rootState) => state.user);
 

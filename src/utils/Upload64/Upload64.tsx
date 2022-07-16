@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import * as S from '../Upload64/Upload64.elements';
 import { BsTrash, BsUpload } from 'react-icons/bs';
 import defaultPic from '../img/user.png'
-import { ImSpinner2 } from 'react-icons/im';
 import { Loader } from '@mantine/core';
 import { useAppDispatch, AppDispatch } from '../../index';
 import { editUserPic, removeUserPic } from '../../actions/User';

@@ -2,13 +2,15 @@ import { AppDispatch } from '../index';
 import * as api from '../api';
 import { GET_POSTS, LIKE, UNLIKE } from '../constants/actionTypes';
 
-export const getPosts = () => async (dispatch: AppDispatch) => {
+export const getPosts = ( num: any ) => async (dispatch: AppDispatch) => {
     try {
         const { data } = await api.getAllPosts();
 
+        const array = data.slice(0, num);
+
         dispatch({
             type: GET_POSTS,
-            payload: data
+            payload: array
         });
 
     } catch (error) {

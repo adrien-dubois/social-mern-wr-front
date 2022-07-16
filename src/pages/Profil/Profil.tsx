@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Log from '../../components/Log/Log';
 import Navbar from '../../components/Navbar/Navbar';
 import UpdateProfil from '../../components/UpdateProfil/UpdateProfil';
