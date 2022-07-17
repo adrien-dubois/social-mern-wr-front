@@ -1,5 +1,4 @@
 import { FunctionComponent, useCallback, useEffect, useRef } from 'react'
-import { useSpring, animated } from 'react-spring'
 import { useSelector } from 'react-redux';
 import { Background, CloseModalButton, ModalContent, ModalWrapper } from './Modal.elements'
 import defaultPic from '../../utils/img/user.png';
@@ -16,14 +15,6 @@ const ModalFoer: FunctionComponent<ModalProps> = ({showModal, setShowModal}) => 
     /*----- STORE ----*/
     const userData = useSelector((state: any) => state.user);
     const followData = useSelector((state: any) => state.follows);
-
-    const animation = useSpring({
-      config: {
-        duration: 250
-      },
-      opacity: showModal ? 1 : 0,
-      transform: showModal ? `translateY(0%)` : `translateY(-100%)`
-    })
 
     const closeModal = (e: any) => {
       if(modalRef.current === e.target) {
@@ -46,7 +37,7 @@ const ModalFoer: FunctionComponent<ModalProps> = ({showModal, setShowModal}) => 
     <>
       { showModal ? (
         <Background ref={modalRef} onClick={closeModal}>
-          <animated.div style={animation}>
+          <div>
             <ModalWrapper showModal={showModal}>
             <ModalContent>
                     <h2>Abonnés</h2>
@@ -72,6 +63,7 @@ const ModalFoer: FunctionComponent<ModalProps> = ({showModal, setShowModal}) => 
                                     );
                                 }
                             }
+                            return null;
                         })}
                     </ul>
                 </ModalContent>
@@ -80,7 +72,7 @@ const ModalFoer: FunctionComponent<ModalProps> = ({showModal, setShowModal}) => 
                   onClick={() => setShowModal((prev: any) => !prev)} 
               />
             </ModalWrapper>
-          </animated.div>
+          </div>
         </Background>
       ): null}
     </>

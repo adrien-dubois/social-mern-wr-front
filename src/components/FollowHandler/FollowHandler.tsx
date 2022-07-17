@@ -12,11 +12,11 @@ const Types = {
   Cards: 'cards'
 };
 
-type Types = typeof Types[keyof typeof Types];
+type TypesAnswer = typeof Types[keyof typeof Types];
 
 type InputProps = {
   idToFollow: any;
-  type: Types;
+  type: TypesAnswer;
 }
 
 const FollowHandler : FunctionComponent<InputProps> = ({ idToFollow, type }) => {
@@ -62,7 +62,7 @@ const FollowHandler : FunctionComponent<InputProps> = ({ idToFollow, type }) => 
     <>
       {isFollowed && !IsEmpty(userData) && 
         <span onClick={handleUnfollow} >
-        {(type as Types) === Types.Suggest && 
+        {(type as TypesAnswer) === Types.Suggest && 
 
           <FollowBtn>
               {isLoading ? 
@@ -76,16 +76,16 @@ const FollowHandler : FunctionComponent<InputProps> = ({ idToFollow, type }) => 
         
 
 
-          {(type as Types === Types.Cards && <BsCheckCircleFill/>)}
+          {(type as TypesAnswer === Types.Cards && <BsCheckCircleFill/>)}
         </span>
       }
       {isFollowed === false && !IsEmpty(userData) && 
       <span onClick={handleFollow}>
-        {(type as Types) === Types.Suggest && <FollowBtn>
+        {(type as TypesAnswer) === Types.Suggest && <FollowBtn>
             Suivre
         </FollowBtn>}
 
-        {(type as Types) === Types.Cards && <BsCheckCircle/>}
+        {(type as TypesAnswer) === Types.Cards && <BsCheckCircle/>}
       </span>
       }
     </>

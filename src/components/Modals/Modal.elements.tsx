@@ -1,5 +1,9 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { MdClose } from "react-icons/md";
+
+const modal = keyframes`
+to { transform: scale(1) translate(0%) }
+`;
 
 export const Background = styled.div`
     width: 100%;
@@ -28,6 +32,9 @@ export const ModalWrapper = styled.div<{showModal: boolean}>`
     position: relative;
     z-index: 1000;
     border-radius: 10px;
+    transform: translate(-100%);
+    transform: scaleY(0);
+    animation: ${modal} .5s forwards;
 
     @media screen and (min-width: 1080px) and (max-width: 1600px) {
         width: 650px;

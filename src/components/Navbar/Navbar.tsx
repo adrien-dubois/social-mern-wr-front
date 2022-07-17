@@ -49,6 +49,8 @@ const Navbar = () => {
 
     useEffect(() => {
         if(user) dispatch(getUser())
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
       },[])
 
     const logout = () => {
@@ -74,10 +76,13 @@ const Navbar = () => {
         if(token){
             const decodedToken = decode<customJwtPayload>(token);
 
-            if(decodedToken.exp * 1000 < new Date().getTime()) logout();
+            if(decodedToken.exp * 1000 < new Date().getTime()){
+                logout();
+            }
         }
 
         setUser(JSON.parse(localStorage.getItem('profile')!))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [location])
 
   return (
