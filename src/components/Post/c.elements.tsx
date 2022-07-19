@@ -21,29 +21,7 @@ export const D = styled.div`
 
     .card-right {
 
-      .button-container {
-        justify-content: flex-end;
-        display: flex;
-
-        div {
-          padding: 5px 9px;
-          margin-left: 5px;
-          background: $color-2;
-          border-radius: 50px;
-          transition: 0.1s;
-          cursor: pointer;
-
-          &:hover {
-            transform: scale(1.07);
-          }
-
-          img {
-            height: 16px;
-            width: 16px;
-            transform: translateY(3px);
-          }
-        }
-      }
+      
 
       .comment-container.client {
         background: $color-4;

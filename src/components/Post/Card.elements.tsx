@@ -4,8 +4,9 @@ export const Li = styled.li`
     display: grid;
     width: 80%;
     grid-template-columns: 66px 1fr;
-    background: #302D4D;
+    background: rgb(39, 51, 89, 0.4);
     border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1.5px solid rgba(255, 255, 255, 0.3);
@@ -122,19 +123,40 @@ export const Li = styled.li`
 
         &__update-post {
             textarea {
-                font-size: 1.3rem;
-                border: 1px solid var(--grey-color);
+                color: var(--white-color);
+                font-size: 1rem;
+                font-family: var(--ubuntu-font);
+                width: 100%;
+                height: 100px;
+                background: rgba(255, 255, 255, 0.05);
+                backdrop-filter: blur(5px);
+                -webkit-backdrop-filter: blur(5px);
+                border: 1px solid rgba(255, 255, 255, 0.3);
                 padding: 10px;
                 border-radius: 20px 20px 6px 20px;
             }
             &__btn-container {
+                display: flex;
+                align-items: flex-end;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
                 &__btn {
-                    background: var(--grey-color);
+                    margin: 15px 0;
+                    border-radius: 20px;
+                    border: none;
+                    background: #387289;
                     width: 240px;
+                    color: #FFF;
+                    height: 30px;
+                    font-weight: bold;
+                    cursor: pointer;
                     transform: translateY(-3px);
+                    transition: all .5s ease-in;
 
                     &:hover {
-                        background: var(--white-antique);
+                        transition: all .5s ease-out;
+                        background: #41819b;
                         width: 250px;
                         letter-spacing: 1px;
                     }
@@ -154,6 +176,30 @@ export const Li = styled.li`
             min-height: 330px;
             border-radius: 6px;
             box-shadow: 0 0 3px rgba(51, 51, 51, 0.342);
+        }
+
+        &__button-container {
+            justify-content: flex-end;
+            display: flex;
+
+            div {
+                padding: 5px 9px;
+                margin-left: 5px;
+                background: #302D4D;
+                border-radius: 50px;
+                transition: 0.1s;
+                cursor: pointer;
+
+                &:hover {
+                    transform: scale(1.07);
+                }
+
+                svg {
+                    height: 16px;
+                    width: 16px;
+                    transform: translateY(2px) translateX(1px);
+                }
+            }
         }
             
         &__card-footer{

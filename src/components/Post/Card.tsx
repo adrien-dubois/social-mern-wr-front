@@ -8,6 +8,12 @@ import { DateParser } from '../../utils/DateParser';
 import FollowHandler from '../FollowHandler/FollowHandler';
 import { BiCommentDetail, BiShareAlt } from 'react-icons/bi';
 import LikeButton from './LikeButton';
+import { FaEdit } from 'react-icons/fa';
+import { AppDispatch } from '../..';
+import { updateOnePost } from '../../actions/Post';
+import { useDispatch } from 'react-redux';
+import DeleteCard from './DeleteCard';
+
 
 type CardProps = {
     post: any;
@@ -21,9 +27,19 @@ const Card: FunctionComponent<CardProps> = ({ post }) => {
         user: any
     }
 
-    const [isLoading, setIsLoading] = useState(true);
+    const dispatch: AppDispatch = useDispatch();
+    const [isLoading, setIsLoading] = useState<boolean>(true);
+    const [isUpdated, setIsUpdated] = useState<boolean>(false);
+    const [textUpdate, setTextUpdate] = useState<any>(null);
     const followsData = useSelector((state: rootState) => state.follows);
     const userData = useSelector((state: rootState) => state.user);
+
+    const updateItem = () => {
+        if(textUpdate) {
+            dispatch(updateOnePost(post.id, textUpdate));
+        }
+        setIsUpdated(false);
+    }
 
     useEffect(() => {
         !IsEmpty(followsData[0]) && setIsLoading(false);
@@ -75,7 +91,23 @@ const Card: FunctionComponent<CardProps> = ({ post }) => {
                     </div>
 
                     {/* MESSAGE */}
-                    <p>{post.message}</p>
+                    {isUpdated === false && <p>{post.message}</p> }
+                    {isUpdated && (
+                        <div className="card-right__update-post">
+                            <textarea
+                                defaultValue={post.message}
+                                onChange={(e) => setTextUpdate(e.target.value)}
+                            />
+                            <div className="card-right__update-post__btn-container">
+                                <button 
+                                    className="card-right__update-post__btn-container__btn"
+                                    onClick={updateItem}
+                                >
+                                    Valider modification
+                                </button>
+                            </div>
+                        </div>
+                    )}
 
                     {/* MESSAGE PIC */}
                     {post.picture && <img src={post.picture} alt="thread pic" className='card-right__card-pic' />}
@@ -92,6 +124,16 @@ const Card: FunctionComponent<CardProps> = ({ post }) => {
                             title={post.id}
                         ></iframe>
                     )}
+
+                    {/* USER FUNCTIONS */}
+                    {userData.id === post.author.id && 
+                        <div className="card-right__button-container">
+                            <div onClick={ ()=> setIsUpdated(!isUpdated) } >
+                                <FaEdit/>
+                            </div>
+                            <DeleteCard postId={post.id}/>
+                        </div>
+                    }
                     
                     <div className="card-right__card-footer">
                         

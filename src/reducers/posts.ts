@@ -1,4 +1,4 @@
-import { GET_POSTS, LIKE, UNLIKE } from '../constants/actionTypes';
+import { GET_POSTS, LIKE, UNLIKE, UPDATE } from '../constants/actionTypes';
 
 const initialState = {};
 
@@ -6,6 +6,16 @@ const postReducer = ( state = initialState, action: any ) => {
     switch (action.type) {
         case GET_POSTS:
             return action.payload;
+        case UPDATE:
+            return (state as []).map((post: any) => {
+                if(post.id === action.payload.postId) {
+                    return {
+                        ...post,
+                        message: action.payload.message
+                    }
+                }
+                return post;
+            });
         case LIKE: 
             return (state as []).map((post: any) => {
                 if(post.id === action.payload.postId){

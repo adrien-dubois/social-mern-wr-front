@@ -32,3 +32,13 @@ export const unfollows = (idToUnfollow: any) => API.patch(`/v1/user/unfollow/${i
 export const getAllPosts = () => API.get('/v1/post/');
 export const likePost = (id: any) => API.patch(`/v1/post/like/${id}`);
 export const unlikePost = (id: any) => API.patch(`/v1/post/unlike/${id}`);
+
+export const updatePost = (id: any, message: any) => {
+    const msg = () => {
+        return JSON.stringify({
+            "message" : message
+        })
+    }
+    API.patch(`/v1/post/${id}`, msg())
+} 
+;

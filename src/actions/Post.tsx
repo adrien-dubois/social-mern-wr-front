@@ -1,6 +1,6 @@
 import { AppDispatch } from '../index';
 import * as api from '../api';
-import { GET_POSTS, LIKE, UNLIKE } from '../constants/actionTypes';
+import { GET_POSTS, LIKE, UNLIKE, UPDATE } from '../constants/actionTypes';
 
 export const getPosts = ( num: any ) => async (dispatch: AppDispatch) => {
     try {
@@ -39,6 +39,20 @@ export const unlikeNewPost = (postId: any, userId: any) => async (dispatch: AppD
         dispatch({
             type: UNLIKE,
             payload: {postId, userId}
+        });
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const updateOnePost = ( postId: any, message: any ) => async (dispatch: AppDispatch) => {
+    try {
+        await api.updatePost(postId, message);
+
+        dispatch({
+            type: UPDATE,
+            payload: {message, postId}
         });
 
     } catch (error) {

@@ -20,6 +20,7 @@ export const Container = styled.div`
 
 export const Nav = styled.nav`
     height: 90px;
+    width: 100%;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 0 0 16px 16px;
     backdrop-filter: blur(5px);
@@ -30,7 +31,7 @@ export const Nav = styled.nav`
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 5;
 

@@ -7,6 +7,7 @@ import { Loader } from '@mantine/core';
 import { useAppDispatch, AppDispatch } from '../../index';
 import { editUserPic, removeUserPic } from '../../actions/User';
 
+
 const Upload64 = () => {
 
     /*----- USER HOOK -----*/
@@ -15,6 +16,8 @@ const Upload64 = () => {
     const dispatch: AppDispatch = useAppDispatch();
 
     /*----- PREPARE UPLOAD -----*/
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [file, setFile] = useState<string>();
     const[imgPreview, setImgPreview] = useState<any>("");
     const[base64, setBase64] = useState<string>();

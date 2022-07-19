@@ -22,7 +22,6 @@ const Thread = () => {
 
   function handleUserScroll() {
     if (window.innerHeight + document.documentElement.scrollTop + 1 > document.scrollingElement?.scrollHeight!) {
-      console.log('YEEES')
       setLoadPost(true);
     }
 
