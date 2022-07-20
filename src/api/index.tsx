@@ -40,5 +40,6 @@ export const updatePost = (id: any, message: any) => {
         })
     }
     API.patch(`/v1/post/${id}`, msg())
-} 
-;
+};
+
+export const deletePost = (id: any) => API.delete(`/v1/post/${id}`);

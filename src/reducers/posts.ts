@@ -1,4 +1,4 @@
-import { GET_POSTS, LIKE, UNLIKE, UPDATE } from '../constants/actionTypes';
+import { DELETE_POST, GET_POSTS, LIKE, UNLIKE, UPDATE } from '../constants/actionTypes';
 
 const initialState = {};
 
@@ -26,6 +26,8 @@ const postReducer = ( state = initialState, action: any ) => {
                 }
                 return post;
             });
+        case DELETE_POST:
+            return (state as []).filter((post: any) => post.id !== action.payload.postId);
         case UNLIKE:
             return (state as []).map((post: any) => {
                 if(post.id === action.payload.postId){

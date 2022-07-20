@@ -1,6 +1,6 @@
 import { AppDispatch } from '../index';
 import * as api from '../api';
-import { GET_POSTS, LIKE, UNLIKE, UPDATE } from '../constants/actionTypes';
+import { DELETE_POST, GET_POSTS, LIKE, UNLIKE, UPDATE } from '../constants/actionTypes';
 
 export const getPosts = ( num: any ) => async (dispatch: AppDispatch) => {
     try {
@@ -55,6 +55,19 @@ export const updateOnePost = ( postId: any, message: any ) => async (dispatch: A
             payload: {message, postId}
         });
 
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const delPost = (postId: any) => async (dispatch: AppDispatch) => {
+    try {
+        await api.deletePost(postId);
+
+        dispatch({
+            type: DELETE_POST,
+            payload: { postId }
+        })
     } catch (error) {
         console.log(error)
     }

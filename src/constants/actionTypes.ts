@@ -19,6 +19,7 @@ export const GET_POSTS = "GET_POSTS";
 export const LIKE = "LIKE";
 export const UNLIKE = "UNLIKE";
 export const UPDATE = "UPDATE";
+export const DELETE_POST = "DELETE_POST";
 
 /*----- ERRORS AUTH -----*/
 export const CREDENTIALS = "CREDENTIALS";
