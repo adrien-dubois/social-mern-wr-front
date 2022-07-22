@@ -13,6 +13,7 @@ import { AppDispatch } from '../..';
 import { updateOnePost } from '../../actions/Post';
 import { useDispatch } from 'react-redux';
 import DeleteCard from './DeleteCard';
+import CardComment from './CardComment';
 
 
 type CardProps = {
@@ -31,6 +32,7 @@ const Card: FunctionComponent<CardProps> = ({ post }) => {
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [isUpdated, setIsUpdated] = useState<boolean>(false);
     const [textUpdate, setTextUpdate] = useState<any>(null);
+    const [showComments, setShowComments] = useState<boolean>(false);
     const followsData = useSelector((state: rootState) => state.follows);
     const userData = useSelector((state: rootState) => state.user);
 
@@ -139,7 +141,9 @@ const Card: FunctionComponent<CardProps> = ({ post }) => {
                         
                         {/* COMMENTS */}
                         <div className="card-right__card-footer__comment-icon">
-                            <BiCommentDetail/>
+                            <BiCommentDetail 
+                                onClick={() => setShowComments(!showComments)} 
+                            />
                             <span>{post.comments.length}</span>
                         </div>
 
@@ -149,6 +153,9 @@ const Card: FunctionComponent<CardProps> = ({ post }) => {
                         {/* SHARE */}
                         <BiShareAlt/>
                     </div>
+
+                    { showComments && <CardComment post={post}/> }
+
                 </div>
             </>
         )}

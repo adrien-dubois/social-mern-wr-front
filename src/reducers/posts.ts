@@ -1,10 +1,12 @@
-import { DELETE_POST, GET_POSTS, LIKE, UNLIKE, UPDATE } from '../constants/actionTypes';
+import { DELETE_POST, GET_COMMENTS, GET_POSTS, LIKE, UNLIKE, UPDATE } from '../constants/actionTypes';
 
 const initialState = {};
 
 const postReducer = ( state = initialState, action: any ) => {
     switch (action.type) {
         case GET_POSTS:
+            return action.payload;
+        case GET_COMMENTS:
             return action.payload;
         case UPDATE:
             return (state as []).map((post: any) => {

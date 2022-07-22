@@ -43,3 +43,8 @@ export const updatePost = (id: any, message: any) => {
 };
 
 export const deletePost = (id: any) => API.delete(`/v1/post/${id}`);
+
+
+// COMMENTS
+export const getCommentsByPost = (postId: any) => API.get(`/v1/comment/post/${postId}`);
+export const postComment = ( formData: any ) => API.post(`/v1/comment/`, formData);

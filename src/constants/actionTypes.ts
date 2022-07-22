@@ -20,6 +20,10 @@ export const LIKE = "LIKE";
 export const UNLIKE = "UNLIKE";
 export const UPDATE = "UPDATE";
 export const DELETE_POST = "DELETE_POST";
+export const ADD_COMMENT = "ADD_COMMENT";
+
+/*----- COMMENTS -----*/
+export const GET_COMMENTS = "GET_COMMENTS";
 
 /*----- ERRORS AUTH -----*/
 export const CREDENTIALS = "CREDENTIALS";

@@ -1,6 +1,13 @@
 import { AppDispatch } from '../index';
 import * as api from '../api';
-import { DELETE_POST, GET_POSTS, LIKE, UNLIKE, UPDATE } from '../constants/actionTypes';
+import { 
+    DELETE_POST, 
+    GET_COMMENTS, GET_POSTS, 
+    LIKE, 
+    UNLIKE, 
+    UPDATE, 
+    ADD_COMMENT 
+} from '../constants/actionTypes';
 
 export const getPosts = ( num: any ) => async (dispatch: AppDispatch) => {
     try {
@@ -17,6 +24,22 @@ export const getPosts = ( num: any ) => async (dispatch: AppDispatch) => {
         console.log(error)
     }
 }
+
+export const getAllPosts = ( ) => async (dispatch: AppDispatch) => {
+    try {
+        const { data } = await api.getAllPosts();
+
+        dispatch({
+            type: GET_POSTS,
+            payload: data
+        });
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
 
 export const likeNewPost = (postId: any, userId: any) => async (dispatch: AppDispatch) => {
     try {
@@ -68,6 +91,34 @@ export const delPost = (postId: any) => async (dispatch: AppDispatch) => {
             type: DELETE_POST,
             payload: { postId }
         })
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getComs = (postId: any) => async (dispatch: AppDispatch) => {
+    try {
+        const { data } = await api.getCommentsByPost(postId);
+
+        dispatch({
+            type: GET_COMMENTS,
+            payload: data
+        })
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const addComment = (formData: any, postId: string) => async (dispatch: AppDispatch) => {
+    try {
+        await api.postComment(formData);
+
+        dispatch({
+            type: ADD_COMMENT,
+            payload: { postId }
+        })
+
     } catch (error) {
         console.log(error)
     }
