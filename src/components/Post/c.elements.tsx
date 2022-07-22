@@ -5,7 +5,6 @@ export const D = styled.div`
 
     .card-right {
 
-      
 
 
       .like-container {

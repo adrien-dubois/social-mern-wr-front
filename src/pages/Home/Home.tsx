@@ -1,4 +1,3 @@
-import Navbar from '../../components/Navbar/Navbar'
 import Thread from '../../components/Thread/Thread'
 import LeftNav from '../../utils/LeftNav/LeftNav'
 import { Div } from './Home.elements'
@@ -9,7 +8,6 @@ const Home = () => {
 
   return (
     <Div>
-      <Navbar/>
       <div className="home-container">
         <LeftNav/>
         <div className="home-container__main">

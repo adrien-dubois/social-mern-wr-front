@@ -3,6 +3,7 @@ import {
     Route, 
     Routes 
   } from 'react-router-dom'
+import Navbar from '../components/Navbar/Navbar';
 import Home from '../pages/Home/Home'
 import Profil from '../pages/Profil/Profil'
 import Trending from '../pages/Trending/Trending'
@@ -13,6 +14,7 @@ const Routing = () => {
   return (
     <>
       <GoToTop/>
+      <Navbar/>
         <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/profil' element={<Profil/>}/>

@@ -7,6 +7,7 @@ import FollowHandler from "../FollowHandler/FollowHandler";
 import { DateParser } from "../../utils/DateParser";
 import { addComment, getAllPosts } from '../../actions/Post';
 import { useAppDispatch } from '../../index';
+import CrudComment from "./CrudComment";
 
 type InputProps = {
     post: any
@@ -65,27 +66,31 @@ const CardComment: FunctionComponent<InputProps> = ({ post }) => {
 
                     
                         {/* PSEUDO */}
-                        <div className="comment-container__comment-header">
-                            <div className="comment-container__comment-header__pseudo">
-                                <h3>
-                                    {comment.commenter.pseudo}
-                                </h3>
+                        <div className="right-part">
+                            <div className="comment-container__comment-header">
+                                <div className="comment-container__comment-header__pseudo">
+                                    <h3>
+                                        {comment.commenter.pseudo}
+                                    </h3>
 
-                                {/* FOLLOW ICON */}
-                                {comment.commenter.id !== userData.id &&
-                                    <FollowHandler 
-                                        idToFollow={comment.commenter.id} 
-                                        type={'cards'}/>
-                                }
+                                    {/* FOLLOW ICON */}
+                                    {comment.commenter.id !== userData.id &&
+                                        <FollowHandler 
+                                            idToFollow={comment.commenter.id} 
+                                            type={'cards'}/>
+                                    }
+                                </div>
+                                <span>{DateParser(comment.createdAt)}</span>
                             </div>
-                            <span>{DateParser(comment.createdAt)}</span>
+                            <p>{comment.text}</p>
+                            <CrudComment comment={comment} postId={post.id} />
                         </div>
-                        <div></div>
-                        <p>{comment.text}</p>
                     </div>
                 </>
             )
         })}
+
+        {/* COMMENT FORM */}
         {userData.id && (
             <form onSubmit={handleComment} className="comment-form" >
                 <input 

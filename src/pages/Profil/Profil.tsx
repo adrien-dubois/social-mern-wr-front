@@ -1,5 +1,4 @@
 import Log from '../../components/Log/Log';
-import Navbar from '../../components/Navbar/Navbar';
 import UpdateProfil from '../../components/UpdateProfil/UpdateProfil';
 import { Div } from './Profil.elements';
 
@@ -9,7 +8,6 @@ const Profil = () => {
   return (
     <>
       <Div>
-      <Navbar/>
         <div className="container">
 
         { user ? (

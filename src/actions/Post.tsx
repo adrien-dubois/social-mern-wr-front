@@ -6,7 +6,8 @@ import {
     LIKE, 
     UNLIKE, 
     UPDATE, 
-    ADD_COMMENT 
+    ADD_COMMENT, 
+    EDIT_COMMENT
 } from '../constants/actionTypes';
 
 export const getPosts = ( num: any ) => async (dispatch: AppDispatch) => {
@@ -117,7 +118,21 @@ export const addComment = (formData: any, postId: string) => async (dispatch: Ap
         dispatch({
             type: ADD_COMMENT,
             payload: { postId }
-        })
+        });
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const editComment = (formData: any, commentId: string, postId: number, text: string) => async (dispatch: AppDispatch) => {
+    try {
+        await api.updateComment(commentId, formData);
+
+        dispatch({
+            type: EDIT_COMMENT,
+            payload: { postId, commentId, text }
+        });
 
     } catch (error) {
         console.log(error)
