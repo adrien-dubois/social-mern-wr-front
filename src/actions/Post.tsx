@@ -7,7 +7,8 @@ import {
     UNLIKE, 
     UPDATE, 
     ADD_COMMENT, 
-    EDIT_COMMENT
+    EDIT_COMMENT,
+    DELETE_COMMENT
 } from '../constants/actionTypes';
 
 export const getPosts = ( num: any ) => async (dispatch: AppDispatch) => {
@@ -134,6 +135,20 @@ export const editComment = (formData: any, commentId: string, postId: number, te
             payload: { postId, commentId, text }
         });
 
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const delComment = ( commentId: number, postId: number ) => async (dispatch: AppDispatch) => {
+    try {
+        
+        await api.eraseComment(commentId)
+
+        dispatch({
+            type: DELETE_COMMENT,
+            payload: { commentId, postId }
+        })
     } catch (error) {
         console.log(error)
     }

@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux'
 import { AppDispatch } from '../..'
 import { Div } from './CrudComment.elements'
 import { TbEdit, TbEditOff } from 'react-icons/tb'
-import { editComment } from '../../actions/Post';
+import { RiChatDeleteLine } from 'react-icons/ri'
+import { delComment, editComment } from '../../actions/Post';
 
 type InputProps = {
     comment: any,
@@ -48,6 +49,8 @@ const CrudComment: FunctionComponent<InputProps> = ({ comment, postId }) => {
         }
     }
 
+    const handleDelete = () => dispatch(delComment(comment.id,postId));
+
   return (
     <Div>
         <div className="edit-comment">
@@ -62,10 +65,6 @@ const CrudComment: FunctionComponent<InputProps> = ({ comment, postId }) => {
                     onSubmit={handleEdit}
                     className="edit-comment__form" 
                 >
-                    <label htmlFor="text" onClick={()=> setEdit(!edit)} >
-                        <TbEditOff/>
-                    </label>
-                    <br/>
                     <input 
                         type="text" 
                         name="text" 
@@ -75,8 +74,15 @@ const CrudComment: FunctionComponent<InputProps> = ({ comment, postId }) => {
                     <br/>
 
                     <div className="btn">
-                        <span>
-
+                        <label htmlFor="text" onClick={()=> setEdit(!edit)} >
+                            <TbEditOff/>
+                        </label>
+                        <span onClick={() => {
+                            if(window.confirm("Voulez-vous supprimer ce commentaire?")){
+                                handleDelete();
+                            }
+                        }}>
+                            <RiChatDeleteLine/>
                         </span>
                         <input type="submit" value="Valider" />
                     </div>

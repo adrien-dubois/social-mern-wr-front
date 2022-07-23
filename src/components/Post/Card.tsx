@@ -140,10 +140,13 @@ const Card: FunctionComponent<CardProps> = ({ post }) => {
                     <div className="card-right__card-footer">
                         
                         {/* COMMENTS */}
-                        <div className="card-right__card-footer__comment-icon">
+                        <div className="card-right__card-footer__comment-icon tooltip">
                             <BiCommentDetail 
                                 onClick={() => setShowComments(!showComments)} 
                             />
+                            <span className="tooltiptext">
+                                Commentaires
+                            </span>
                             <span>{post.comments.length}</span>
                         </div>
 

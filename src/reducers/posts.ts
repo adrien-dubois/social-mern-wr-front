@@ -1,4 +1,4 @@
-import { DELETE_POST, EDIT_COMMENT, GET_COMMENTS, GET_POSTS, LIKE, UNLIKE, UPDATE } from '../constants/actionTypes';
+import { DELETE_COMMENT, DELETE_POST, EDIT_COMMENT, GET_COMMENTS, GET_POSTS, LIKE, UNLIKE, UPDATE } from '../constants/actionTypes';
 
 const initialState = {};
 
@@ -27,7 +27,18 @@ const postReducer = ( state = initialState, action: any ) => {
                 } else {
                     return post;
                 }
-            })
+            });
+        case DELETE_COMMENT:
+            return (state as []).map((post: any) => {
+                if(post.id === action.payload.postId){
+                    return {
+                        ...post,
+                        comments: post.comments.filter((comment: any) => comment.id !== action.payload.commentId)
+                    }
+                } else {
+                    return post;
+                }
+            });
         case UPDATE:
             return (state as []).map((post: any) => {
                 if(post.id === action.payload.postId) {
