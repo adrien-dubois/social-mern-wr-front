@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Div = styled.div`
-    max-width: 380px;
+    max-width: 480px;
     width: 100%;
     height: 55px;
     margin: 10px 0;

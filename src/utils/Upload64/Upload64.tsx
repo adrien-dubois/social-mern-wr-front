@@ -17,8 +17,7 @@ const Upload64 = () => {
 
     /*----- PREPARE UPLOAD -----*/
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [file, setFile] = useState<string>();
+    const [, setFile] = useState<string>();
     const[imgPreview, setImgPreview] = useState<any>("");
     const[base64, setBase64] = useState<string>();
     const[name, setName] = useState<string>();

@@ -11,7 +11,6 @@ import { Div } from './SignupForm.elements'
 
 /*----- HOOKS -----*/
 import { useSelector } from 'react-redux';
-import { NavigateFunction, useNavigate } from 'react-router-dom';
 import { AppDispatch, useAppDispatch } from '../..';
 
 /*----- COMPONENTS -----*/
@@ -24,7 +23,6 @@ const SignupForm = () => {
 
   /*----- HOOKS STATES -----*/
   const dispatch: AppDispatch = useAppDispatch();
-  const navigate: NavigateFunction = useNavigate();
 
   interface RootState {
     auth: any,
@@ -45,7 +43,7 @@ const SignupForm = () => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    dispatch(signup(formData, navigate));
+    dispatch(signup(formData))
   }
 
   const handleChange = (e: any) => {
@@ -90,7 +88,7 @@ useEffect(() => {
           icon={<FaUser/>}
           type="text"
           placeholder="Pseudo"
-          name="name"
+          name="pseudo"
           handleChange={handleChange}
           error={error}
         />

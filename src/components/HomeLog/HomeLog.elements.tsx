@@ -7,7 +7,7 @@ export const Div = styled.div`
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 20px;
-    padding: 20px;
+  padding: 20px;
 
   @media screen and(max-width: 550px) {
     min-width: 200px;

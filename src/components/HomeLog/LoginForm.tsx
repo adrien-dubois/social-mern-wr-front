@@ -56,7 +56,6 @@ const LoginForm = () => {
     <>
       <ErrorNotification />
       <form onSubmit={handleLogin} autoComplete="off" ref={form}>
-        <label htmlFor="email">Email</label>
         <Input
           icon={<FaEnvelope />}
           type="email"
@@ -65,7 +64,6 @@ const LoginForm = () => {
           handleChange={handleChange}
           error={error}
         />
-        <label htmlFor="password">Mot de passe</label>
         <InputPassword
           name="password"
           handleChange={handleChange}

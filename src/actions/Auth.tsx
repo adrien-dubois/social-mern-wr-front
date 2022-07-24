@@ -1,6 +1,5 @@
 import * as api from '../api';
 import { AppDispatch } from '../index';
-import { NavigateFunction } from 'react-router-dom';
 import { showNotification } from '@mantine/notifications';
 import { GiMailbox, GiRabbitHead } from 'react-icons/gi';
 import { 
@@ -56,7 +55,7 @@ export const signin = (formData: any) => async (dispatch: AppDispatch) => {
 };
 
 /*----- Sign up method -----*/
-export const signup = (formData: any, navigate: NavigateFunction) => async (dispatch: AppDispatch) => {
+export const signup = (formData: any ) => async (dispatch: AppDispatch) => {
     try {
         
         const { data } = await api.signUp(formData);
@@ -73,8 +72,6 @@ export const signup = (formData: any, navigate: NavigateFunction) => async (disp
             color: 'green',
             icon: <GiMailbox/>
         });
-
-        navigate('/');
 
     } catch (error: any) {
 
