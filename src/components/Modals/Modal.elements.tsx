@@ -92,8 +92,8 @@ export const ModalContent = styled.div`
             }
 
             img{
-                width: auto;
-                max-height: 85px;
+                max-width: 80px;
+                height: 80px;
                 border-radius: 14px;
                 border: 1.8px solid rgba(255, 255, 255, 0.3);
             }

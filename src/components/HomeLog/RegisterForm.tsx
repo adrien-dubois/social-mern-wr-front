@@ -1,13 +1,14 @@
 import { useRef, useState, useEffect } from 'react';
 import { FaEnvelope, FaUser } from 'react-icons/fa';
 import { useSelector } from "react-redux";
-import { AppDispatch, useAppDispatch } from "../..";
+import { useAppDispatch } from "../..";
 import { resetErrors, signup } from "../../actions/Auth";
 import { Button } from '../../GlobalStyles';
 import ErrorNotification from '../../utils/ErrorNotifications';
 import Input from '../../utils/Input/Input';
 import InputPassword from '../../utils/InputPassword/InputPassword';
 import Uploader from '../../utils/Uploader/Uploader';
+import LoginForm from './LoginForm';
 
 const initialState = { email: '', pseudo: '', password: '', confirmPassword:'', bio:'', picture: '' }
 
@@ -18,13 +19,14 @@ const RegisterForm = () => {
     errors: any
   }
 
-  const dispatch: AppDispatch = useAppDispatch();
+  const dispatch: any = useAppDispatch();
 
   /*------ MANAGE ERROR STATES ------*/
   const isError = useSelector((state: RootState) => state.errors.isError);
   const isPass = useSelector((state: RootState) => state.errors.isPass);
   const [error, setError] = useState<boolean>(false);
   const [errorPass, setErrorPass] = useState<boolean>(false);
+  const [ isRegistred, setIsRegistred] = useState<boolean>(false);
 
   /*----- FORM FIELDS STATE -----*/
   const [formData, setFormData] = useState(initialState);
@@ -42,7 +44,7 @@ const RegisterForm = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     dispatch(signup(formData))
-
+    .then(() => setIsRegistred(true))
   }
 
   const handleChange = (e: any) => {
@@ -73,6 +75,11 @@ const RegisterForm = () => {
   }, [isError, isPass]);
 
   return (
+    <>
+    {isRegistred ? (
+      <LoginForm/>
+      ) : (
+        
     <>
     <ErrorNotification/>
       <form
@@ -119,7 +126,10 @@ const RegisterForm = () => {
             S'enregistrer
           </Button>
       </form>
+      </>
+      )}
     </>
+
   )
 }
 

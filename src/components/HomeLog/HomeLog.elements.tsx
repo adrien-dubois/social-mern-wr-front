@@ -8,6 +8,7 @@ export const Div = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 20px;
   padding: 20px;
+  width: 80%;
 
   @media screen and(max-width: 550px) {
     min-width: 200px;

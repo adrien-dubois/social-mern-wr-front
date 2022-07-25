@@ -11,18 +11,20 @@ import { Div } from './SignupForm.elements'
 
 /*----- HOOKS -----*/
 import { useSelector } from 'react-redux';
-import { AppDispatch, useAppDispatch } from '../..';
+import { useAppDispatch } from '../..';
 
 /*----- COMPONENTS -----*/
 import { resetErrors, signup } from '../../actions/Auth';
 import ErrorNotification from '../../utils/ErrorNotifications';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
 
 const initialState = { email: '', pseudo: '', password: '', confirmPassword:'', bio:'', image: '' }
 
 const SignupForm = () => {
 
   /*----- HOOKS STATES -----*/
-  const dispatch: AppDispatch = useAppDispatch();
+  const dispatch: any = useAppDispatch();
+  const navigate: NavigateFunction = useNavigate();
 
   interface RootState {
     auth: any,
@@ -44,6 +46,7 @@ const SignupForm = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     dispatch(signup(formData))
+    .then(() => navigate("/"));
   }
 
   const handleChange = (e: any) => {
