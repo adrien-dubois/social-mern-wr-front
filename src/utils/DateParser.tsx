@@ -1,4 +1,4 @@
-/*----- DATE PARSER TO DISPLAY TIMESTAMPS IN FRENCH DATE -----*/
+/*----- DATE PARSER TO DISPLAY DATES IN FRENCH DATE -----*/
 export const DateParser = (num: any) => {
     let options = {
         hour: "2-digit", 

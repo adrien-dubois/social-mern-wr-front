@@ -51,54 +51,90 @@ export const Div = styled.div`
       width: 100%;
       font-size: 1.1rem;
       font-family: var(--ubuntu-font);
-      font-style: italic;
+      color: #FFF;
       padding: 12px 15px;
       border-radius: 20px 20px 6px 20px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+
+      &::placeholder{
+        font-style: italic;
+        color: var(--grey-color);
+      }
     }
     .card-container {
-      background: $white;
-      border-radius: 20px 20px 6px 20px;
+        display: grid;
+        grid-template-columns: 65px 1fr;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 20px 20px 6px 20px;
 
-      .card-left {
+      &__left {
         text-align: left;
         img {
+            margin-left: .5rem;
+            margin-top: 5px;
+            border-radius: 20px;
+            height: 60px;
+            width: 60px;
+            box-shadow: 2px 2px 2px rgba(51, 51, 51, 0.16);
+            object-fit: cover;
           @media screen and(max-width: 590px) {
             margin-left: 0;
           }
         }
       }
-      .card-right {
+
+      &__right {
         @media screen and(max-width: 590px) {
           margin-left: 0;
         }
-        .card-header {
-          @media screen and(max-width: 632px) {
-            flex-direction: column;
-          }
-          @media screen and(max-width: 590px) {
-            margin: 0;
-          }
-          .pseudo {
-            @media screen and(max-width: 440px) {
-              transform: translateY(-8px);
-            }
-          }
-          span {
+        &__header {
+            
+
             @media screen and(max-width: 632px) {
-              position: absolute;
-              top: 40px;
+                flex-direction: column;
             }
             @media screen and(max-width: 590px) {
-              left: 68px;
+                margin: 0;
             }
-            @media screen and(max-width: 440px) {
-              left: 14px;
-              top: 60px;
+            &__pseudo {
+
+                @media screen and(max-width: 440px) {
+                    transform: translateY(-8px);
+                }
+
+                display: flex;
+                justify-content: space-between;
+                margin: 2px 10px;
+                min-height: 35px;
+                width: 95%;
+
+                span {
+                    font-style: italic;
+                    font-family: var(--font-ubuntu);
+                    color: var(--grey-color);
+                    
+                    @media screen and(max-width: 632px) {
+                        position: absolute;
+                        top: 40px;
+                    }
+                    @media screen and(max-width: 590px) {
+                        left: 68px;
+                    }
+                    @media screen and(max-width: 440px) {
+                    left: 14px;
+                    top: 60px;
+                    }
+                }
             }
-          }
         }
-        .content {
-          padding: 6px 0;
+        &__content {
+          padding: 6px 9px;
           p {
             text-align: left;
             margin: 2px 0 6px;
@@ -163,27 +199,34 @@ export const Div = styled.div`
         margin-top: 4px;
         color: red;
       }
-      .btn-send {
+      &__btn-send {
+
         .cancel {
-          border-radius: 20px;
+          border-radius: 20px 20px 20px 6px;
           margin-right: 8px;
-          background: $white;
+          color: #FFF;
+          background: #ed3a53;
 
           &:hover {
-            color: $color-4;
-            background: $color-3;
+            background: #da364c;
+            letter-spacing: 1px;
           }
         }
         .send {
+            background: #387289;
           &:hover {
-            letter-spacing: 2px;
+            background: #41819b;
+            letter-spacing: 1px;
           }
         }
         button {
-          @media screen and(max-width: 460px) {
-            font-size: 0.8rem;
-            padding: 8px;
-          }
+          margin-top: 4px;
+          padding: 4px 16px;
+          width: 120px;
+          color: #fff;
+          border-radius: 20px 6px 20px 20px;
+          transition: all 0.4s ease-in-out;
+          cursor: pointer;
         }
       }
     }

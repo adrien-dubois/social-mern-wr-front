@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import IsEmpty from '../../utils/IsEmpty';
 import { Div } from './PosterComponent.elements'
-import { GoFileMedia } from "react-icons/go";
 import PicturePost from './PicturePost';
+import { timestampParser } from '../../utils/TimeStampParser';
 
 const initialState = { message: "", picture: "", video: "" }
 
@@ -31,6 +31,19 @@ const PosterComponent = () => {
     })
   }
 
+  const handlePost = () => {
+
+  }
+
+  const cancelPost = () => {
+    setFormData({
+      ...formData,
+      picture: "",
+      message: "",
+      video: ""
+    });
+  }
+
   const passData = (data: any) => {
     setFormData({
       ...formData,
@@ -54,9 +67,9 @@ const PosterComponent = () => {
             </div>
 
               <div className="user-info">
-            <NavLink to="/profil" style={{ width: '60px' }}>
-                <img src={userData.picture} alt="user-img"/>
-            </NavLink>
+                <NavLink to="/profil" style={{ width: '60px' }}>
+                  <img src={userData.picture} alt="user-img"/>
+                </NavLink>
               </div>
 
             <div className="post-form">
@@ -65,7 +78,32 @@ const PosterComponent = () => {
                 id="message"
                 placeholder="Quoi de neuf?"
                 onChange={handleChange}
+                value={formData.message}
               />
+
+              {formData.message || formData.picture || formData.video.length > 20 ? (
+                <div className="card-container">
+                  <div className="card-container__left">
+                    <img src={userData.picture} alt="usrpicture"/>
+                  </div>
+
+                  <div className="card-container__right">
+                    <div className="card-container__right__header">
+                      <div className="card-container__right__header__pseudo">
+                        <h3>{userData.pseudo}</h3>
+                        <span>{timestampParser(Date.now())}</span>
+                      </div>
+                    </div>
+                    <div className="card-container__right__content">
+                      <p>{formData.message}</p>
+                      {formData.picture !== "" &&
+                        <img src={formData.picture} alt="preview"/>
+                      }
+                    </div>
+                  </div>
+                </div>
+              ) : null}
+
               <div className="footer-form">
                 <div className="footer-form__icon">
                     {IsEmpty(formData.video) && (
@@ -76,7 +114,20 @@ const PosterComponent = () => {
                     {formData.video && (
                       <button onClick={() => setFormData({ ...formData, video: "" })} >Supprimer vidéo</button>
                     )}
-                    
+                </div>
+
+                <div className="footer-form__btn-send">
+
+                  {formData.message || formData.picture || formData.video.length > 20 ? (
+                    <button className="cancel" onClick={cancelPost} >
+                        Annuler
+                    </button>
+                  ) : null}
+
+                  <button className="send" onClick={handlePost} >
+                    Envoyer
+                  </button>
+
                 </div>
               </div>
             </div>
