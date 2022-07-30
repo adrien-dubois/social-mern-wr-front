@@ -1,6 +1,7 @@
-import { AppDispatch } from '../index';
+
 import * as api from '../api';
 import { FOLLOW, GET_ALL, UNFOLLOW } from '../constants/actionTypes';
+import { AppDispatch } from '..';;
 
 
 export const getAllUsers = () => async (dispatch: AppDispatch) => {

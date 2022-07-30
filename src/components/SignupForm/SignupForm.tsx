@@ -11,12 +11,12 @@ import { Div } from './SignupForm.elements'
 
 /*----- HOOKS -----*/
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from '../..';
 
 /*----- COMPONENTS -----*/
 import { resetErrors, signup } from '../../actions/Auth';
 import ErrorNotification from '../../utils/ErrorNotifications';
 import { NavigateFunction, useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '../..';
 
 const initialState = { email: '', pseudo: '', password: '', confirmPassword:'', bio:'', image: '' }
 

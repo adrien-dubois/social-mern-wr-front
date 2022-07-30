@@ -2,12 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import { FaEnvelope } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "../..";
 import { resetErrors, signin } from "../../actions/Auth";
 import { Button } from "../../GlobalStyles";
 import ErrorNotification from "../../utils/ErrorNotifications";
 import Input from "../../utils/Input/Input";
 import InputPassword from "../../utils/InputPassword/InputPassword";
+import { AppDispatch } from '../../index';
 
 const initialState = { username: "", password: "" };
 

@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../..';
 import IsEmpty from '../../utils/IsEmpty';
 import { Div } from './Thread.elements';
 import { getPosts } from '../../actions/Post';
 import Card from '../Post/Card';
+import { AppDispatch } from '../../index';
 
 
 const Thread = () => {

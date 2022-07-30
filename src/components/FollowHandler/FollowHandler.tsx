@@ -1,11 +1,11 @@
 import { FunctionComponent, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
-import { AppDispatch, useAppDispatch } from '../..';
 import IsEmpty from '../../utils/IsEmpty';
 import { FollowBtn } from './FollowHandler.elements'
 import { followUser, unfollowUser } from '../../actions/Follow';
 import { Loader } from '@mantine/core';
 import { BsCheckCircle, BsCheckCircleFill } from 'react-icons/bs';
+import { AppDispatch, useAppDispatch } from '../..';
 
 const Types = {
   Suggest: "suggest",

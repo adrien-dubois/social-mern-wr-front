@@ -1,11 +1,11 @@
 import { FunctionComponent, useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
-import { AppDispatch } from '../..'
 import { Div } from './CrudComment.elements'
 import { TbEdit, TbEditOff } from 'react-icons/tb'
 import { RiChatDeleteLine } from 'react-icons/ri'
 import { delComment, editComment } from '../../actions/Post';
+import { AppDispatch } from '../../index';
 
 type InputProps = {
     comment: any,

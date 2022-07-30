@@ -1,5 +1,4 @@
 import * as api from '../api';
-import { AppDispatch } from '../index';
 import { showNotification } from '@mantine/notifications';
 import { GiMailbox, GiRabbitHead } from 'react-icons/gi';
 import { 
@@ -13,6 +12,7 @@ import {
     UNIQID, 
     VALIDATE 
 } from '../constants/actionTypes';
+import { AppDispatch } from '..';
 
 /*----- Login Method -----*/
 export const signin = (formData: any) => async (dispatch: AppDispatch) => {

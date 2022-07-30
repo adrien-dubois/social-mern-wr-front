@@ -9,11 +9,11 @@ import FollowHandler from '../FollowHandler/FollowHandler';
 import { BiCommentDetail, BiShareAlt } from 'react-icons/bi';
 import LikeButton from './LikeButton';
 import { FaEdit } from 'react-icons/fa';
-import { AppDispatch } from '../..';
 import { updateOnePost } from '../../actions/Post';
 import { useDispatch } from 'react-redux';
 import DeleteCard from './DeleteCard';
 import CardComment from './CardComment';
+import { AppDispatch } from '../../index';
 
 
 type CardProps = {
@@ -60,7 +60,7 @@ const Card: FunctionComponent<CardProps> = ({ post }) => {
                             const avatar = user.picture;
                             if(user.id === post.author.id) {
                                 return (
-                                        <img src={avatar ? avatar : defaultPic} alt='user-pic' /> 
+                                        <img src={avatar ? avatar : defaultPic} alt='user-pic' key={user.id}/> 
                                     )
                             }
                             return null;

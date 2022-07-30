@@ -1,8 +1,8 @@
-import { AppDispatch } from '../index';
 import * as api from '../api';
 import { DEL_PICTURE, PICTURE, UPDATE_BIO } from '../constants/actionTypes';
 import { showNotification } from '@mantine/notifications';
 import { GiRabbitHead } from 'react-icons/gi';
+import { AppDispatch } from '..';;
 
 export const editUserPic = (payload: any) => async (dispatch: AppDispatch) => {
     try {

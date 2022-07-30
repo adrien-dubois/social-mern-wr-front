@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useSelector } from 'react-redux';
-import * as S from '../Upload64/Upload64.elements';
+import * as S from '../../utils/Upload64/Upload64.elements';
 import { BsTrash, BsUpload } from 'react-icons/bs';
 import defaultPic from '../img/user.png'
 import { Loader } from '@mantine/core';

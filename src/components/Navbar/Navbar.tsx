@@ -11,8 +11,8 @@ import { IconContext } from 'react-icons';
 import { BtnLogout, Dropdown, Nav, NavbarContainer, NavBtnLink, NavIcon, NavItem, NavItemBtn, NavLinks, NavLogo, NavMenu, NavUser } from './Navbar.elements';
 import { Button } from '../../GlobalStyles';
 import { IoMdLogIn } from 'react-icons/io';
-import { AppDispatch, useAppDispatch } from '../..';
 import { getUser } from '../../actions/Auth';
+import { AppDispatch, useAppDispatch } from '../..';
 
 
 const Navbar = () => {

@@ -1,7 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import { FaEnvelope, FaUser } from 'react-icons/fa';
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "../..";
 import { resetErrors, signup } from "../../actions/Auth";
 import { Button } from '../../GlobalStyles';
 import ErrorNotification from '../../utils/ErrorNotifications';
@@ -9,6 +8,7 @@ import Input from '../../utils/Input/Input';
 import InputPassword from '../../utils/InputPassword/InputPassword';
 import Uploader from '../../utils/Uploader/Uploader';
 import LoginForm from './LoginForm';
+import { useAppDispatch } from '../../index';
 
 const initialState = { email: '', pseudo: '', password: '', confirmPassword:'', bio:'', picture: '' }
 

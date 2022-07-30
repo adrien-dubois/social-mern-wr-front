@@ -3,12 +3,12 @@ import LeftNav from "../../utils/LeftNav/LeftNav"
 import { Div } from "./UpdateProfil.elements"
 import Upload64 from '../../utils/Upload64/Upload64';
 import { useState } from "react";
-import { AppDispatch, useAppDispatch } from '../../index';
 import { updateBio } from "../../actions/User";
 import { Button } from "../../GlobalStyles";
 import { DateParser } from '../../utils/DateParser';
 import ModalFoer from "../Modals/ModalFoer";
 import ModalFoing from "../Modals/ModalFoing";
+import { AppDispatch, useAppDispatch } from "../..";
 
 const UpdateProfil = () => {
 

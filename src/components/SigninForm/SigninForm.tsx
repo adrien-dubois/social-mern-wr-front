@@ -5,10 +5,10 @@ import { Button } from '../../GlobalStyles';
 import Input from '../../utils/Input/Input';
 import InputPassword from '../../utils/InputPassword/InputPassword';
 import { Div } from './SigninForm.elements'
-import { AppDispatch } from '../../index';
 import { resetErrors, signin } from '../../actions/Auth';
 import { useSelector } from 'react-redux';
 import ErrorNotification from '../../utils/ErrorNotifications';
+import { AppDispatch } from '../../index';
 
 const initialState = { username: '', password: '' };
 

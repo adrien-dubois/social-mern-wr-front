@@ -2,9 +2,9 @@ import { FunctionComponent, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import IsEmpty from '../../utils/IsEmpty';
-import { AppDispatch } from '../..';
 import { useDispatch } from 'react-redux';
 import { likeNewPost, unlikeNewPost } from '../../actions/Post';
+import { AppDispatch } from '../../index';
 
 type InputProps = {
   post: any

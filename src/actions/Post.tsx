@@ -1,4 +1,3 @@
-import { AppDispatch } from '../index';
 import * as api from '../api';
 import { 
     DELETE_POST, 
@@ -10,6 +9,7 @@ import {
     EDIT_COMMENT,
     DELETE_COMMENT
 } from '../constants/actionTypes';
+import { AppDispatch } from '..';;
 
 export const getPosts = ( num: any ) => async (dispatch: AppDispatch) => {
     try {

@@ -1,8 +1,8 @@
 import { FunctionComponent } from 'react'
 import { FaRegTrashAlt } from 'react-icons/fa'
 import { useDispatch } from 'react-redux'
-import { AppDispatch } from '../..'
 import { delPost } from '../../actions/Post'
+import { AppDispatch } from '../../index';
 
 type InputProps = {
     postId: any

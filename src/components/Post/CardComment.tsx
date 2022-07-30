@@ -6,8 +6,8 @@ import defaultPic from '../../utils/img/user.png';
 import FollowHandler from "../FollowHandler/FollowHandler";
 import { DateParser } from "../../utils/DateParser";
 import { addComment, getAllPosts } from '../../actions/Post';
-import { useAppDispatch } from '../../index';
 import CrudComment from "./CrudComment";
+import { useAppDispatch } from "../..";
 
 type InputProps = {
     post: any
@@ -57,7 +57,7 @@ const CardComment: FunctionComponent<InputProps> = ({ post }) => {
                                 const avatar = user.picture;
                                 if(user.id === comment.commenter.id) {
                                     return (
-                                            <img src={avatar ? avatar : defaultPic} alt='commenter-pic' /> 
+                                            <img src={avatar ? avatar : defaultPic} alt='commenter-pic' key={user.id}/> 
                                         )
                                 }
                                 return null;
