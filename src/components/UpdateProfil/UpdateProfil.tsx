@@ -9,6 +9,7 @@ import { DateParser } from '../../utils/DateParser';
 import ModalFoer from "../Modals/ModalFoer";
 import ModalFoing from "../Modals/ModalFoing";
 import { AppDispatch, useAppDispatch } from "../..";
+import * as api from "../../api";
 
 const UpdateProfil = () => {
 
@@ -33,6 +34,22 @@ const UpdateProfil = () => {
     setUpdateForm(false)
   }
 
+  const handleDownload = (e: any) => {
+    e.preventDefault();
+    api.downloadPdf()
+    .then(
+      (response) => {
+        let fileName =  response.headers['content-disposition'].split('filename=')[1];
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', fileName); 
+        document.body.appendChild(link);
+        link.click();
+      }
+    )
+  }
+
   return (
     <Div>
         <div className="profil-container">
@@ -48,7 +65,9 @@ const UpdateProfil = () => {
             <div className="profil-container__divide__right">
               <div className="profil-container__divide__right__bio">
                 <h3>Bio</h3>
-
+                <button onClick={(e)=>{handleDownload(e)}}>
+                  test dl
+                </button>
                 {updateForm === false && (
                   <>
                     <p className="bubble speech" onClick={() => setUpdateForm(!updateForm)} >
@@ -99,6 +118,7 @@ const UpdateProfil = () => {
                 <h5 className="btn-container__valid follow" onClick={() => setFollowersModal(!followersModal)} >
                   Abonnés : &nbsp; <span>{userData.follower ? userData.follower.length : "0" }</span>
                 </h5> 
+
               </div>
             </div>
             {followersModal &&
