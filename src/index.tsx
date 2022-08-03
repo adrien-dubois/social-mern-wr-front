@@ -6,30 +6,23 @@ import { NotificationsProvider } from '@mantine/notifications';
 import { Provider, useDispatch, TypedUseSelectorHook } from 'react-redux';
 import { getAllUsers } from './actions/Follow';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { applyMiddleware, legacy_createStore as createStore } from '@reduxjs/toolkit';
-import thunk from 'redux-thunk';
+import { configureStore, PreloadedState } from '@reduxjs/toolkit';
 import rootReducer from './reducers/rootReducer';
 import { useSelector } from 'react-redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
-const actionSanitizer = (action: any) => (
-  action.type === 'FILE_DOWNLOAD_SUCCESS' && action.data ?
-  { ...action, data: '<<LONG_BLOB>>' } : action
-);
 
-const composedEnhancer = composeWithDevTools( 
-  actionSanitizer, 
-  applyMiddleware(thunk)
-  )
+export function setupStore(preloadedState?: PreloadedState<RootState>) {
+  return configureStore({
+    reducer: rootReducer,
+    devTools: true,
+    preloadedState
+  })
+}
 
-
-const store = createStore(
-  rootReducer,
-  composedEnhancer
-);
+const store = setupStore();
 
 
 store.dispatch(getAllUsers());
