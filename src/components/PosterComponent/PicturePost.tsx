@@ -1,5 +1,6 @@
-import { FunctionComponent, useState } from 'react'
+import { FunctionComponent, useEffect, useState } from 'react'
 import { GoFileMedia } from 'react-icons/go';
+import IsEmpty from '../../utils/IsEmpty';
 
 type InputProps = {
     passData: (data: any) => void
@@ -22,8 +23,13 @@ const PicturePost: FunctionComponent<InputProps> = ({ passData }) => {
         let binaryString = readerEvt.target.result;
         const base = btoa(binaryString);
         setBase64("data:image/png;base64," + base)
-        passData(base64);
     }
+    
+    useEffect(() => {
+        if(!IsEmpty(base64)){
+            passData(base64);
+        }
+    }, [base64])
 
   return (
     <>

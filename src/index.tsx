@@ -9,15 +9,19 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { configureStore, PreloadedState } from '@reduxjs/toolkit';
 import rootReducer from './reducers/rootReducer';
 import { useSelector } from 'react-redux';
+import thunk from 'redux-thunk';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
+const middleware = [thunk];
+
 export function setupStore(preloadedState?: PreloadedState<RootState>) {
   return configureStore({
     reducer: rootReducer,
     devTools: true,
+    middleware: middleware,
     preloadedState
   })
 }
