@@ -113,7 +113,7 @@ const GlobalStyles = createGlobalStyle`
 
 export default GlobalStyles;
 
-export const Button = styled.button<{big: boolean, fontBig: boolean}>`
+export const ButtonCustom = styled.button<{big: boolean, fontBig: boolean}>`
     border-radius: 4px;
     font-family: var(--poppins-font);
     background-image: linear-gradient(to right, #f43b47 0%, #453a94 100%);

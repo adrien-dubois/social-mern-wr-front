@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { FaEnvelope } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
-import { Button } from '../../GlobalStyles';
+import { ButtonCustom } from '../../GlobalStyles';
 import Input from '../../utils/Input/Input';
 import InputPassword from '../../utils/InputPassword/InputPassword';
 import { Div } from './SigninForm.elements'
@@ -83,9 +83,9 @@ const SigninForm = () => {
             innerRef={pass}
           />
 
-          <Button fontBig={false} big={false} type="submit" className='btn-signin'>
+          <ButtonCustom fontBig={false} big={false} type="submit" className='btn-signin'>
             Se connecter
-          </Button>
+          </ButtonCustom>
 
         </form>
     </Div>

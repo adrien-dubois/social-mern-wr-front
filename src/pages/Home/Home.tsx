@@ -16,11 +16,9 @@ const Home = () => {
           <div className="home-header">
             {user ? <PosterComponent/> : <HomeLog signin={true} signup={false}/> }
           </div>
-          {user ? 
-            <Thread/>
-            :
-            <p>Pas connecté</p>
-          }
+          
+          <Thread/>
+           
         </div>
         <div className="home-container__right"></div>
       </div>

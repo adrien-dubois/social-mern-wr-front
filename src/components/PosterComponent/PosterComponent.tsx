@@ -7,7 +7,31 @@ import { Div } from './PosterComponent.elements'
 import PicturePost from './PicturePost';
 import { timestampParser } from '../../utils/TimeStampParser';
 
-const initialState = { message: "", picture: "", video: "" }
+interface IPicture{
+  
+    name: string;
+    file: string;
+    size: string;
+    value: string;
+  
+}
+
+interface IMessage {
+  message: string;
+  picture: IPicture;
+  video: string;
+}
+
+const initialState: IMessage = { 
+  message: "", 
+  picture: {
+    name: '', 
+    file: '', 
+    size: '', 
+    value: ''
+  }, 
+  video: "" 
+}
 
 interface rootState {
   user: any
@@ -18,7 +42,7 @@ const PosterComponent = () => {
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const userData = useSelector((state: rootState) => state.user);
-  const [formData, setFormData] = useState(initialState);
+  const [formData, setFormData] = useState<IMessage>(initialState);
 
   useEffect(() => {
     if(!IsEmpty(userData)) setIsLoading(false);
@@ -32,19 +56,24 @@ const PosterComponent = () => {
   }
 
   const handlePost = () => {
-
+    console.log(formData)
   }
 
   const cancelPost = () => {
     setFormData({
       ...formData,
-      picture: "",
+      picture: {
+        name: '',
+        size: '',
+        file: '',
+        value: ''
+      },
       message: "",
       video: ""
     });
   }
 
-  const passData = (data: any) => {
+  const passData = (data: IPicture) => {
     setFormData({
       ...formData,
       picture: data
@@ -81,7 +110,7 @@ const PosterComponent = () => {
                 value={formData.message}
               />
 
-              {formData.message || formData.picture || formData.video.length > 20 ? (
+              {formData.message || formData.picture.name || formData.video.length > 20 ? (
                 <div className="card-container">
                   <div className="card-container__left">
                     <img src={userData.picture} alt="usrpicture"/>
@@ -96,8 +125,8 @@ const PosterComponent = () => {
                     </div>
                     <div className="card-container__right__content">
                       <p>{formData.message}</p>
-                      {formData.picture !== "" &&
-                        <img src={formData.picture} alt="preview"/>
+                      {formData.picture.name !== '' &&
+                        <img src={formData.picture.value} alt="preview"/>
                       }
                     </div>
                   </div>
@@ -118,7 +147,7 @@ const PosterComponent = () => {
 
                 <div className="footer-form__btn-send">
 
-                  {formData.message || formData.picture || formData.video.length > 20 ? (
+                  {formData.message || formData.picture.name || formData.video.length > 20 ? (
                     <button className="cancel" onClick={cancelPost} >
                         Annuler
                     </button>

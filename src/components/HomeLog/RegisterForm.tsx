@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import { FaEnvelope, FaUser } from 'react-icons/fa';
 import { useSelector } from "react-redux";
 import { resetErrors, signup } from "../../actions/Auth";
-import { Button } from '../../GlobalStyles';
+import { ButtonCustom } from '../../GlobalStyles';
 import ErrorNotification from '../../utils/ErrorNotifications';
 import Input from '../../utils/Input/Input';
 import InputPassword from '../../utils/InputPassword/InputPassword';
@@ -122,9 +122,9 @@ const RegisterForm = () => {
         <Uploader passData={passData}/>
 
 
-          <Button fontBig={false} big={false} type="submit" className='btn-signin'>
+          <ButtonCustom fontBig={false} big={false} type="submit" className='btn-signin'>
             S'enregistrer
-          </Button>
+          </ButtonCustom>
       </form>
       </>
       )}

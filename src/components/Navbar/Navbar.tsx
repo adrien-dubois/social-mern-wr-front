@@ -4,15 +4,16 @@ import { useSelector } from 'react-redux';
 import decode, { JwtPayload } from 'jwt-decode';
 
 /*------ MANTINE & ICONS ------*/
-import { Burger, Avatar} from '@mantine/core';
-import { FaUser } from 'react-icons/fa';
+import { Burger, Avatar, Menu, UnstyledButton} from '@mantine/core';
+import { FaRegUser } from 'react-icons/fa';
 import { BiLogOut } from 'react-icons/bi'
 import { IconContext } from 'react-icons';
-import { BtnLogout, Dropdown, Nav, NavbarContainer, NavBtnLink, NavIcon, NavItem, NavItemBtn, NavLinks, NavLogo, NavMenu, NavUser } from './Navbar.elements';
-import { Button } from '../../GlobalStyles';
+import { BtnLogout, Nav, NavbarContainer, NavBtnLink, NavIcon, NavItemBtn, NavLinks, NavLogo, NavMenu, NavUser } from './Navbar.elements';
+import { ButtonCustom } from '../../GlobalStyles';
 import { IoMdLogIn } from 'react-icons/io';
 import { getUser } from '../../actions/Auth';
 import { AppDispatch, useAppDispatch } from '../..';
+import { IoRocketOutline } from 'react-icons/io5';
 
 
 const Navbar = () => {
@@ -26,10 +27,6 @@ const Navbar = () => {
     const [opened, setOpened] = useState(false);
     const [button, setButton] = useState(true);
     const title = opened ? 'Fermer le menu' : 'Ouvrir le menu';
-
-    /*----- DROPDOWN PART -----*/
-    const [userMenu, setUserMenu] = useState(false);
-    const handleMenu = () => setUserMenu(!userMenu);
 
     /*----- RESPONSIVE BTN -----*/
     const showButton = () => {
@@ -112,57 +109,56 @@ const Navbar = () => {
 
                         // DROPDOWN USER MENU
                         <>
-                            <NavItem className="nav-item">
-                                <NavLinks className='nav-links' to='/'>
-                                    Accueil
-                                </NavLinks>
-                            </NavItem>
+                            <IconContext.Provider value={{ color: "#000" }} >
+                                <Menu shadow="md" width={200} >
+                                    <Menu.Target>
 
-                            <NavItem className="nav-item">
-                                <NavLinks className='nav-links' to='/'>
-                                    Articles
-                                </NavLinks>
-                            </NavItem>
+                                    {imgSrc ? 
+                                    <UnstyledButton title={title} >
+                                        <Avatar 
+                                            src={imgSrc} 
+                                            alt={user.name}
+                                            size="lg" 
+                                            radius="xl"
+                                        /> 
+                                    </UnstyledButton>
+                                        :
+                                        <UnstyledButton>
+                                            <Avatar color="cyan" size="lg" radius="xl">{imgName}</Avatar>
+                                        </UnstyledButton>
+                                    }
+                                    </Menu.Target>
+                                
+                                
+                                    <Menu.Dropdown>
 
-                            <IconContext.Provider value={{ color: 'var(--black-color)', size: '20px'}} >
-                            <Dropdown>
-                                <NavItem className="drop" onClick={handleMenu}>
-                                {imgSrc ? 
-                                    <Avatar 
-                                        src={imgSrc} 
-                                        alt={user.name}
-                                        size="lg" 
-                                        radius="xl"
-                                    /> 
-                                    :
-                                    <Avatar color="cyan" size="lg" radius="xl">{imgName}</Avatar>
-                                }
-                                </NavItem>
-                                <div className={userMenu ? 'menu active' : 'menu'}>
-                                    <h3>{userData.pseudo}</h3>
-                                    <ul>
-                                        <li>
-                                            <Link to='/profil'>
-                                                <button>
-                                                    <FaUser/>Profil
-                                                </button>
-                                            </Link>
-                                        </li>
+                                        <Menu.Label>{userData.pseudo}</Menu.Label>
+                                        
+                                        <Menu.Item 
+                                            icon={<FaRegUser/>} 
+                                            component={Link} 
+                                            to="/profil" 
+                                        >
+                                            Profil  
+                                        </Menu.Item>
+                                        
+                                        <Menu.Item icon={<IoRocketOutline/>}>
+                                            Trends
+                                        </Menu.Item>
 
-                                        <li>
-                                            <button>
-                                                <FaUser/>Autre
-                                            </button>
-                                        </li>
+                                        <Menu.Divider/>
 
-                                        <li>
-                                            <button onClick={logout} >
-                                                <BiLogOut/>Déconnexion
-                                            </button>
-                                        </li>
-                                    </ul>                                    
-                                </div>
-                            </Dropdown>
+                                        <Menu.Item 
+                                            color="red"
+                                            icon={<BiLogOut/>} 
+                                            onClick={logout}
+                                        >
+                                            Déconnexion
+                                        </Menu.Item>
+                                                                        
+                                    </Menu.Dropdown>
+                                
+                                </Menu>
                             </IconContext.Provider>
 
                             <NavUser>
@@ -173,9 +169,9 @@ const Navbar = () => {
 
                             <NavUser>
                                 <BtnLogout onClick={logout}>
-                                    <Button fontBig={true} big={true}>
+                                    <ButtonCustom fontBig={true} big={true}>
                                         Déconnexion
-                                    </Button>
+                                    </ButtonCustom>
                                 </BtnLogout>
                             </NavUser>
                         </>
@@ -187,16 +183,16 @@ const Navbar = () => {
                                 {button ? (
                                     <IconContext.Provider value={{ size: "1.5rem" }}>
                                         <NavBtnLink to='/profil'>
-                                            <Button className='navBtn' fontBig={false} big={false}>
+                                            <ButtonCustom className='navBtn' fontBig={false} big={false}>
                                                 <IoMdLogIn/> &nbsp; Connexion
-                                            </Button>
+                                            </ButtonCustom>
                                         </NavBtnLink>
                                     </IconContext.Provider>
                                 ) : (
                                     <NavBtnLink to='/profil'>
-                                        <Button fontBig={true} big={true}>
+                                        <ButtonCustom fontBig={true} big={true}>
                                             Connexion
-                                        </Button>
+                                        </ButtonCustom>
                                     </NavBtnLink>
                                 )}
                             </NavItemBtn>

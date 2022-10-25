@@ -141,37 +141,6 @@ export const NavMenu = styled.ul<{opened: boolean}>`
     
 `;
 
-export const NavItem = styled.li`
-    height: 70px;
-    border-bottom: 2px solid transparent;
-
-    &.nav-item{
-
-        &::after{
-            display: block;
-            content: '';
-            border-width: 1px;
-            border-style: solid;
-            border-image: var(--btn-gradient);
-            transform: scaleX(0);
-            transition: transform 250ms ease-in-out;
-        }
-    
-        &:hover::after{
-            transform: scaleX(1);
-            transform-origin:  0% 50%;
-        }
-    }
-
-    @media screen and (max-width: 960px){
-        width: 100%;
-
-        &:hover{
-            border: none;
-        }
-    }
-`;
-
 export const NavLinks = styled(Link)`
     color: var(--white-color);
     display: flex;
@@ -228,99 +197,7 @@ export const BtnLogout = styled.span`
     outline: none;
 `;
 
-export const Dropdown = styled.div`
-    position: relative;
 
-    .drop{
-        margin-top: 1rem;
-        margin-left: .5rem;
-        cursor: pointer;
-    }
-    .menu{
-        position: absolute;
-        top: 120px;
-        right: -112px;
-        padding: 10px 20px;
-        background: var(--white-color);
-        width: 200px;
-        box-sizing: 0 5px 25px rgba(0, 0, 0, .1);
-        border-radius: 15px;
-        transition: .5s ease-in-out;
-        visibility: hidden;
-        opacity: 0;
-
-        &.active{
-            visibility: visible;
-            opacity: 1;
-            top: 90px;
-        }
-
-        &::before{
-            content: '';
-            position: absolute;
-            top: -5px;
-            left: 50px;
-            width: 20px;
-            height: 20px;
-            background: var(--white-color);
-            transform: rotate(45deg);
-        }
-
-        h3{
-            width: 100%;
-            text-align: center;
-            color: #555;
-            font-weight: 500;
-            line-height: 1.2rem;
-            font-size: 1.1rem;
-            padding: 20px 0;
-        }
-
-        ul{
-            li{
-                padding: 10px 0;
-                border-top: 1px solid rgba(0, 0, 0, .5);
-                display: flex;
-                align-items: center;
-                flex-wrap: wrap;
-
-                button{
-                    display: inline-flex;
-                    align-items: center;
-                    justify-content: center;
-
-                    svg{
-                        margin-right: 10px;
-                        opacity: .5;
-                        transition: .5s ease-in-out;
-                    }
-                }
-
-                a, button{
-                    color: var(--black-color);
-                    font-size: 1rem;
-                    font-weight: 500;
-                    opacity: .5;
-                    border: none;
-                    outline: 0;
-                    background: 0 0;
-                    cursor: pointer;
-                    transition: .5s ease-in-out;
-                }
-
-                &:hover{
-                    svg, a, button{
-                        opacity: .8;
-                    }
-                }
-            }
-        }
-    }
-
-    @media screen and (max-width: 960px){
-        display: none;
-    }
-`;
 
 export const NavUser = styled.li`
     height: 80px;

@@ -4,7 +4,7 @@ import { Div } from "./UpdateProfil.elements"
 import Upload64 from '../../utils/Upload64/Upload64';
 import { useState } from "react";
 import { updateBio } from "../../actions/User";
-import { Button } from "../../GlobalStyles";
+import { ButtonCustom } from "../../GlobalStyles";
 import { DateParser } from '../../utils/DateParser';
 import ModalFoer from "../Modals/ModalFoer";
 import ModalFoing from "../Modals/ModalFoing";
@@ -54,12 +54,12 @@ const UpdateProfil = () => {
                     <p className="bubble speech" onClick={() => setUpdateForm(!updateForm)} >
                       {userData.bio}
                     </p>
-                    <Button 
+                    <ButtonCustom 
                       big={false} 
                       fontBig={false} 
                       className="navBtn" 
                       onClick={() => setUpdateForm(!updateForm)} 
-                    > Modifier bio </Button>
+                    > Modifier bio </ButtonCustom>
                   </>
                 )}
                 {updateForm && (

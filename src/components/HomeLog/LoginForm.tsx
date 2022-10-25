@@ -3,7 +3,7 @@ import { FaEnvelope } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { resetErrors, signin } from "../../actions/Auth";
-import { Button } from "../../GlobalStyles";
+import { ButtonCustom } from "../../GlobalStyles";
 import ErrorNotification from "../../utils/ErrorNotifications";
 import Input from "../../utils/Input/Input";
 import InputPassword from "../../utils/InputPassword/InputPassword";
@@ -71,14 +71,14 @@ const LoginForm = () => {
           error={error}
           innerRef={pass}
         />
-        <Button
+        <ButtonCustom
           fontBig={false}
           big={false}
           type="submit"
           className="btn-signin"
         >
           Connexion
-        </Button>
+        </ButtonCustom>
       </form>
     </>
   );

@@ -4,7 +4,7 @@ import FileBase from 'react-file-base64';
 
 /*----- STYLE & ICONS -----*/
 import { FaEnvelope, FaUser } from 'react-icons/fa';
-import { Button } from '../../GlobalStyles';
+import { ButtonCustom } from '../../GlobalStyles';
 import Input from '../../utils/Input/Input';
 import InputPassword from '../../utils/InputPassword/InputPassword';
 import { Div } from './SignupForm.elements'
@@ -127,9 +127,9 @@ useEffect(() => {
           />
         </div>
 
-          <Button fontBig={false} big={false} type="submit" className='btn-signin'>
+          <ButtonCustom fontBig={false} big={false} type="submit" className='btn-signin'>
             S'enregistrer
-          </Button>
+          </ButtonCustom>
       </form>
     </Div>
   )
